@@ -2,10 +2,10 @@
 title: "Préparons ensemble la consultation économique du CSE de votre entreprise !"
 date: 2025-11-01T18:22:57.397Z
 author: "Philippe Quériaux"
-category: "Non classé"
+category: "Actualités comptables"
 slug: preparons-ensemble-la-consultation-economique-du-cse-de-votre-entreprise
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/1642.jpg"
 ---
 
 Lorsque votre employeur fait la consultation annuelle obligatoire sur la situation économique et financière de l'entreprise, il doit mettre dans la BDESE divers éléments, et surtout les **comptes annuels complets** et le rapport de gestion qu'il vient de finaliser.   

@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: un-etablissement-distinct-c-est-quoi
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/972.jpg"
 ---
 
 **Pourquoi fait-on des établissements distincts ?**  
