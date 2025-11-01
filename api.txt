@@ -1,0 +1,4240 @@
+ API Front
+Console API Front Kiubi
+Utilisez notre console pour tester vos appels API à notre plateforme en temps réel. Consultez notre documentation API en ligne pour des détails complets sur les fonctionnalités de Kiubi et ses guides d'intégration.
+blogAfficher/MasquerLister les actionsDéplier les actions
+get /blog/posts.jsonListe tous les billets
+Description
+Liste tous les billets
+
+Paramètres
+Paramètre	Valeur	Type	Description
+pinned	
+string	Comportement des billets épinglés
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication du billet
+title / -title	Tri selon le titre du billet
+comments_count / -comments_count	Tri selon le nombre de commentaire
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "title": "string",
+    "is_pinned": "boolean",
+    "type": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "header": "string",
+    "slug": "string",
+    "content": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "author": "string",
+    "url": "string",
+    "permalink": "string",
+    "publication_date": "string",
+    "publication_date_f": "string",
+    "publication_date_timestamp": "integer",
+    "category_id": "integer",
+    "category_slug": "string",
+    "category_name": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer"
+  }
+]
+
+get /blog/categories.jsonListe les catégories
+Description
+Liste les catégories
+
+Paramètres
+Paramètre	Valeur	Type	Description
+sort	
+array	Ordres de tri parmis les critères suivants :
+id / -id	Tri selon l'identifiant de la catégorie
+title / -title	Tri selon l'intitulé de la catégorie
+slug / -slug	Tri selon le nom optimisé de la catégorie
+posts_count / -posts_count	Tri selon le nombre de billet
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "name": "string",
+    "posts_count": "integer",
+    "slug": "string",
+    "url": "string"
+  }
+]
+
+get /blog/categories/{category_id}/posts.jsonListe les billets d'une catégorie
+Description
+Liste les billets d'une catégorie
+
+Paramètres
+Paramètre	Valeur	Type	Description
+category_id	
+(requis)
+integer	Identifiant de la catégorie
+pinned	
+string	Comportement des billets épinglés
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication du billet
+title / -title	Tri selon le titre du billet
+comments_count / -comments_count	Tri selon le nombre de commentaire
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "title": "string",
+    "is_pinned": "boolean",
+    "type": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "header": "string",
+    "slug": "string",
+    "content": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "author": "string",
+    "url": "string",
+    "permalink": "string",
+    "publication_date": "string",
+    "publication_date_f": "string",
+    "publication_date_timestamp": "integer",
+    "category_id": "integer",
+    "category_slug": "string",
+    "category_name": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer"
+  }
+]
+
+get /blog/categories/{category_id}/{year}/posts.jsonListe les billets d'une catégorie de l'année
+Description
+Liste les billets d'une catégorie publiés pendant l'année indiquée.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+category_id	
+(requis)
+integer	Identifiant de la catégorie
+year	
+(requis)
+integer	Année sur 4 chiffres
+pinned	
+string	Comportement des billets épinglés
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication du billet
+title / -title	Tri selon le titre du billet
+comments_count / -comments_count	Tri selon le nombre de commentaire
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "title": "string",
+    "is_pinned": "boolean",
+    "type": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "header": "string",
+    "slug": "string",
+    "content": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "author": "string",
+    "url": "string",
+    "permalink": "string",
+    "publication_date": "string",
+    "publication_date_f": "string",
+    "publication_date_timestamp": "integer",
+    "category_id": "integer",
+    "category_slug": "string",
+    "category_name": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer"
+  }
+]
+
+get /blog/categories/{category_id}/{year}/{month}/posts.jsonListe les billets d'une catégorie du mois
+Description
+Liste les billets d'une catégorie publiés pendant le mois indiqué.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+category_id	
+(requis)
+integer	Identifiant de la catégorie
+year	
+(requis)
+integer	Année sur 4 chiffres
+month	
+(requis)
+integer	Numéro du mois
+pinned	
+string	Comportement des billets épinglés
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication du billet
+title / -title	Tri selon le titre du billet
+comments_count / -comments_count	Tri selon le nombre de commentaire
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "title": "string",
+    "is_pinned": "boolean",
+    "type": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "header": "string",
+    "slug": "string",
+    "content": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "author": "string",
+    "url": "string",
+    "permalink": "string",
+    "publication_date": "string",
+    "publication_date_f": "string",
+    "publication_date_timestamp": "integer",
+    "category_id": "integer",
+    "category_slug": "string",
+    "category_name": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer"
+  }
+]
+
+get /blog/categories/{category_id}/{year}/{month}/{day}/posts.jsonListe les billets d'une catégorie de la date
+Description
+Liste les billets d'une catégorie publiés le jour indiqué.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+category_id	
+(requis)
+integer	Identifiant de la catégorie
+year	
+(requis)
+integer	Année sur 4 chiffres
+month	
+(requis)
+integer	Numéro du mois
+day	
+(requis)
+integer	Numéro du jour
+pinned	
+string	Comportement des billets épinglés
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication du billet
+title / -title	Tri selon le titre du billet
+comments_count / -comments_count	Tri selon le nombre de commentaire
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "title": "string",
+    "is_pinned": "boolean",
+    "type": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "header": "string",
+    "slug": "string",
+    "content": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "author": "string",
+    "url": "string",
+    "permalink": "string",
+    "publication_date": "string",
+    "publication_date_f": "string",
+    "publication_date_timestamp": "integer",
+    "category_id": "integer",
+    "category_slug": "string",
+    "category_name": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer"
+  }
+]
+
+get /blog/{year}/posts.jsonListe les billets de l'année
+Description
+Liste les billets publiés dans l'année indiquée.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+year	
+(requis)
+integer	Année sur 4 chiffres
+pinned	
+string	Comportement des billets épinglés
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication du billet
+title / -title	Tri selon le titre du billet
+comments_count / -comments_count	Tri selon le nombre de commentaire
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "title": "string",
+    "is_pinned": "boolean",
+    "type": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "header": "string",
+    "slug": "string",
+    "content": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "author": "string",
+    "url": "string",
+    "permalink": "string",
+    "publication_date": "string",
+    "publication_date_f": "string",
+    "publication_date_timestamp": "integer",
+    "category_id": "integer",
+    "category_slug": "string",
+    "category_name": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer"
+  }
+]
+
+get /blog/{year}/{month}/posts.jsonListe les billets du mois
+Description
+Liste des billets publiés dans le mois indiqué.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+year	
+(requis)
+integer	Année sur 4 chiffres
+month	
+(requis)
+integer	Numéro du mois
+pinned	
+string	Comportement des billets épinglés
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication du billet
+title / -title	Tri selon le titre du billet
+comments_count / -comments_count	Tri selon le nombre de commentaire
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "title": "string",
+    "is_pinned": "boolean",
+    "type": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "header": "string",
+    "slug": "string",
+    "content": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "author": "string",
+    "url": "string",
+    "permalink": "string",
+    "publication_date": "string",
+    "publication_date_f": "string",
+    "publication_date_timestamp": "integer",
+    "category_id": "integer",
+    "category_slug": "string",
+    "category_name": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer"
+  }
+]
+
+get /blog/{year}/{month}/{day}/posts.jsonListe les billets d'une date
+Description
+Liste les billets publiés à la date indiquée.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+year	
+(requis)
+integer	Année sur 4 chiffres
+month	
+(requis)
+integer	Numéro du mois
+day	
+(requis)
+integer	Numéro du jour
+pinned	
+string	Comportement des billets épinglés
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication du billet
+title / -title	Tri selon le titre du billet
+comments_count / -comments_count	Tri selon le nombre de commentaire
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "title": "string",
+    "is_pinned": "boolean",
+    "type": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "header": "string",
+    "slug": "string",
+    "content": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "author": "string",
+    "url": "string",
+    "permalink": "string",
+    "publication_date": "string",
+    "publication_date_f": "string",
+    "publication_date_timestamp": "integer",
+    "category_id": "integer",
+    "category_slug": "string",
+    "category_name": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer"
+  }
+]
+
+get /blog/archives.jsonListe les archives
+Description
+Liste des mois et années où des billets ont été publiés.
+
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "year": "integer",
+    "month": "integer",
+    "url": "string"
+  }
+]
+
+get /blog/posts/{post_id}.jsonDétail d'un billet
+Description
+Détail d'un billet
+
+Paramètres
+Paramètre	Valeur	Type	Description
+post_id	
+(requis)
+integer	Identifiant du billet
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Le billet n'existe pas
+Format de sortie
+Schéma JSONModèle
+{
+  "id": "integer",
+  "title": "string",
+  "is_pinned": "boolean",
+  "type": "string",
+  "thumb": {
+    "id": "integer",
+    "title": "string",
+    "description": "string",
+    "url": "string",
+    "url_miniature": "string",
+    "url_vignette": "string",
+    "url_g_miniature": "string",
+    "url_g_vignette": "string"
+  },
+  "header": "string",
+  "slug": "string",
+  "content": "string",
+  "text1": "string",
+  "text2": "string",
+  "text3": "string",
+  "text4": "string",
+  "text5": "string",
+  "text6": "string",
+  "text7": "string",
+  "text8": "string",
+  "text9": "string",
+  "text10": "string",
+  "text11": "string",
+  "text12": "string",
+  "text13": "string",
+  "text14": "string",
+  "text15": "string",
+  "author": "string",
+  "url": "string",
+  "permalink": "string",
+  "publication_date": "string",
+  "publication_date_f": "string",
+  "publication_date_timestamp": "integer",
+  "category_id": "integer",
+  "category_slug": "string",
+  "category_name": "string",
+  "has_comments_open": "boolean",
+  "comments_count": "integer"
+}
+
+get /blog/posts/{post_id}/captcha.jsonGénère un captcha
+Description
+Génère un nouveau captcha pour le prochain commentaire posté par l'utilisateur courant. Ce endpoint est inutile si reCaptha est utilisé.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+post_id	
+(requis)
+integer	Identifiant du billet
+Format de sortie
+Schéma JSONModèle
+{
+  "captcha": "string"
+}
+
+get /blog/comments.jsonListe les commentaires
+Description
+Liste les commentaires
+
+Paramètres
+Paramètre	Valeur	Type	Description
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication du commentaire
+Format de sortie
+Schéma JSONModèle
+{
+  "comments": [
+    {
+      "id": "integer",
+      "post_id": "integer",
+      "post_title": "string",
+      "post_url": "string",
+      "comment": "string",
+      "author": "string",
+      "author_url": "string",
+      "date": "string",
+      "date_f": "string",
+      "date_timestamp": "integer",
+      "avatar": "string",
+      "avatar_mini": "string",
+      "origin": "string",
+      "new_captcha": "string"
+    }
+  ]
+}
+
+get /blog/posts/{post_id}/comments.jsonListe les commentaires d'un billet
+Description
+En plus de la liste les commentaires, ce endpoint renvoie également des informations sur la protection par captcha de la publication de commentaires.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+post_id	
+(requis)
+integer	Identifiant du billet
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication du commentaire
+Format de sortie
+Schéma JSONModèle
+{
+  "comments": [
+    {
+      "id": "integer",
+      "post_id": "integer",
+      "post_title": "string",
+      "post_url": "string",
+      "comment": "string",
+      "author": "string",
+      "author_url": "string",
+      "date": "string",
+      "date_f": "string",
+      "date_timestamp": "integer",
+      "avatar": "string",
+      "avatar_mini": "string",
+      "origin": "string",
+      "new_captcha": "string"
+    }
+  ],
+  "has_comments_open": "boolean",
+  "has_captcha": "boolean",
+  "captcha": "string",
+  "is_consent_required": "boolean"
+}
+
+post /blog/posts/{post_id}/comments.jsonPoste un commentaire
+Description
+Si la protection par captcha est activée, il est obligatoire de remplir le champ captcha avec la réponse à la question du captcha de la plateforme ou le token reCaptcha.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+post_id	
+(requis)
+integer	Identifiant du billet
+captcha	
+string	Réponse au dernier captcha généré pour ce billet
+author	
+(requis)
+string	Auteur du commentaire
+email	
+string	Adresse email de l'auteur
+website	
+string	Site Internet de l'auteur
+comment	
+(requis)
+string	Commentaire
+consent	
+boolean	Donne le consentement au traitement des données
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Le billet n'existe pas
+4002	Les données envoyées comportent des erreurs
+Format de sortie
+Schéma JSONModèle
+{
+  "id": "integer",
+  "is_published": "boolean",
+  "new_captcha": "string"
+}
+
+cartAfficher/MasquerLister les actionsDéplier les actions
+get /cart.jsonRésumé du panier
+Description
+Résumé du panier
+
+Paramètres
+Paramètre	Valeur	Type	Description
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+price_label	Label des prix dans la devise du site
+Format de sortie
+Schéma JSONModèle
+{
+  "currency": "string",
+  "min_order_amount": "float",
+  "items_count": "integer",
+  "items": [
+    {
+      "variant_id": "integer",
+      "type": "string",
+      "name": "string",
+      "sku": "string",
+      "product_id": "integer",
+      "product_name": "string",
+      "product_description": "string",
+      "product_header": "string",
+      "product_excerpt": "string",
+      "product_url": "string",
+      "is_discounted": "boolean",
+      "discount_rate": "float",
+      "price_ex_vat": "float",
+      "price_inc_vat": "float",
+      "price_base_ex_vat": "float",
+      "price_base_inc_vat": "float",
+      "price_ecotax": "float",
+      "price_ex_vat_label": "string",
+      "price_inc_vat_label": "string",
+      "price_base_ex_vat_label": "string",
+      "price_base_inc_vat_label": "string",
+      "price_ecotax_label": "string",
+      "quantity": "integer",
+      "quantity_max": "integer",
+      "quantity_max_warn": "boolean",
+      "price_total_ex_vat": "float",
+      "price_total_inc_vat": "float",
+      "price_total_ex_vat_label": "string",
+      "price_total_inc_vat_label": "string",
+      "thumb": {
+        "id": "integer",
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "url_miniature": "string",
+        "url_vignette": "string",
+        "url_g_miniature": "string",
+        "url_g_vignette": "string"
+      }
+    }
+  ],
+  "options": [
+    {
+      "option_id": "integer",
+      "type": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": "integer",
+      "value": "string",
+      "options": [
+        "string"
+      ],
+      "price_inc_vat": "float",
+      "price_ex_vat": "float",
+      "price_inc_vat_label": "string",
+      "price_ex_vat_label": "string"
+    }
+  ],
+  "voucher": {
+    "code": "string",
+    "value": "float",
+    "type": "string",
+    "label": "string"
+  },
+  "is_duty_free": "boolean",
+  "price_subtotal_ex_vat": "float",
+  "price_subtotal_inc_vat": "float",
+  "price_total_ecotax": "float",
+  "price_total_ex_vat": "float",
+  "price_total_vat": "float",
+  "price_total_inc_vat": "float",
+  "price_subtotal_ex_vat_label": "string",
+  "price_subtotal_inc_vat_label": "string",
+  "price_total_ecotax_label": "string",
+  "price_total_ex_vat_label": "string",
+  "price_total_vat_label": "string",
+  "price_total_inc_vat_label": "string",
+  "shipping": {
+    "carrier_id": "integer",
+    "name": "string",
+    "description": "string",
+    "price_ex_vat": "float",
+    "price_inc_vat": "float",
+    "price_ex_vat_label": "string",
+    "price_inc_vat_label": "string",
+    "vat_rate": "float",
+    "weight": "integer",
+    "is_free": "boolean",
+    "destination": "string",
+    "picking_number": "string",
+    "require_scheduling": "string",
+    "scheduled_date": "string",
+    "scheduled_hour": "string"
+  }
+}
+
+delete /cart.jsonVide le panier
+Description
+Vide le panier
+
+put /cart/items/{variant_id}.jsonAjout ou retrait de variante au panier
+Description
+Ajoute ou retire une quantité de variante au panier. Il est possbile de le faire en valeur absolue ou relative.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+variant_id	
+(requis)
+integer	Identifiant numérique de la variante
+quantity	
++1
+string	Quantité absolue ou relative au format X, +X ou -X (+1 par défaut)
+mode	
+string	Mode d'ajout. En mode besteffort (mode par défaut) le système tente d'ajouter le maximum de produits disponibles. En mode strict, si la quantité souhaitée n'est pas disponible, aucun produit n'est ajouté
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+price_label	Label des prix dans la devise du site
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Produit introuvable
+4006	La quantité souhaitée n'est plus disponible
+Format de sortie
+Schéma JSONModèle
+{
+  "summary": [
+    {
+      "status": "string",
+      "message": "string",
+      "id": "integer",
+      "max": "integer"
+    }
+  ],
+  "cart": {
+    "currency": "string",
+    "min_order_amount": "float",
+    "items_count": "integer",
+    "items": [
+      {
+        "variant_id": "integer",
+        "type": "string",
+        "name": "string",
+        "sku": "string",
+        "product_id": "integer",
+        "product_name": "string",
+        "product_description": "string",
+        "product_header": "string",
+        "product_excerpt": "string",
+        "product_url": "string",
+        "is_discounted": "boolean",
+        "discount_rate": "float",
+        "price_ex_vat": "float",
+        "price_inc_vat": "float",
+        "price_base_ex_vat": "float",
+        "price_base_inc_vat": "float",
+        "price_ecotax": "float",
+        "price_ex_vat_label": "string",
+        "price_inc_vat_label": "string",
+        "price_base_ex_vat_label": "string",
+        "price_base_inc_vat_label": "string",
+        "price_ecotax_label": "string",
+        "quantity": "integer",
+        "quantity_max": "integer",
+        "quantity_max_warn": "boolean",
+        "price_total_ex_vat": "float",
+        "price_total_inc_vat": "float",
+        "price_total_ex_vat_label": "string",
+        "price_total_inc_vat_label": "string",
+        "thumb": {
+          "id": "integer",
+          "title": "string",
+          "description": "string",
+          "url": "string",
+          "url_miniature": "string",
+          "url_vignette": "string",
+          "url_g_miniature": "string",
+          "url_g_vignette": "string"
+        }
+      }
+    ],
+    "options": [
+      {
+        "option_id": "integer",
+        "type": "string",
+        "name": "string",
+        "description": "string",
+        "quantity": "integer",
+        "value": "string",
+        "options": [
+          "string"
+        ],
+        "price_inc_vat": "float",
+        "price_ex_vat": "float",
+        "price_inc_vat_label": "string",
+        "price_ex_vat_label": "string"
+      }
+    ],
+    "voucher": {
+      "code": "string",
+      "value": "float",
+      "type": "string",
+      "label": "string"
+    },
+    "is_duty_free": "boolean",
+    "price_subtotal_ex_vat": "float",
+    "price_subtotal_inc_vat": "float",
+    "price_total_ecotax": "float",
+    "price_total_ex_vat": "float",
+    "price_total_vat": "float",
+    "price_total_inc_vat": "float",
+    "price_subtotal_ex_vat_label": "string",
+    "price_subtotal_inc_vat_label": "string",
+    "price_total_ecotax_label": "string",
+    "price_total_ex_vat_label": "string",
+    "price_total_vat_label": "string",
+    "price_total_inc_vat_label": "string",
+    "shipping": {
+      "carrier_id": "integer",
+      "name": "string",
+      "description": "string",
+      "price_ex_vat": "float",
+      "price_inc_vat": "float",
+      "price_ex_vat_label": "string",
+      "price_inc_vat_label": "string",
+      "vat_rate": "float",
+      "weight": "integer",
+      "is_free": "boolean",
+      "destination": "string",
+      "picking_number": "string",
+      "require_scheduling": "string",
+      "scheduled_date": "string",
+      "scheduled_hour": "string"
+    }
+  }
+}
+
+delete /cart/items/{variant_id}.jsonSupprime un produit du panier
+Description
+Supprime un produit du panier
+
+Paramètres
+Paramètre	Valeur	Type	Description
+variant_id	
+(requis)
+integer	Identifiant unique de la variante
+put /cart/items.jsonAjout multiple de variantes au panier
+Description
+Modifie en une fois le contenu du panier. Il est possible de modifier les quantitiés en valeur absolue ou relative. Les variantes avec une quantité nulle sont retirés du panier. Pour ajouter une variante au panier, il suffit d'indiquer une quantité non nulle.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+mode	
+string	Mode d'ajout.
+besteffort (mode par défaut) : le système tente d'ajouter le maximum de produits disponibles.
+strict : si la quantité souhaité n'est pas disponible, aucun produit n'est ajouté
+items	
+items[variant_id]=quantity
+array	tableau associatif, variante => quantité souhaitée. La quantité peut être éxprimée de façon absolue ou relative au format X, +X ou -X
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+price_label	Label des prix dans la devise du site
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Produit introuvable
+4006	Les produits n'ont pas été ajoutés
+Format de sortie
+Schéma JSONModèle
+{
+  "summary": [
+    {
+      "status": "string",
+      "message": "string",
+      "id": "integer",
+      "max": "integer"
+    }
+  ],
+  "cart": {
+    "currency": "string",
+    "min_order_amount": "float",
+    "items_count": "integer",
+    "items": [
+      {
+        "variant_id": "integer",
+        "type": "string",
+        "name": "string",
+        "sku": "string",
+        "product_id": "integer",
+        "product_name": "string",
+        "product_description": "string",
+        "product_header": "string",
+        "product_excerpt": "string",
+        "product_url": "string",
+        "is_discounted": "boolean",
+        "discount_rate": "float",
+        "price_ex_vat": "float",
+        "price_inc_vat": "float",
+        "price_base_ex_vat": "float",
+        "price_base_inc_vat": "float",
+        "price_ecotax": "float",
+        "price_ex_vat_label": "string",
+        "price_inc_vat_label": "string",
+        "price_base_ex_vat_label": "string",
+        "price_base_inc_vat_label": "string",
+        "price_ecotax_label": "string",
+        "quantity": "integer",
+        "quantity_max": "integer",
+        "quantity_max_warn": "boolean",
+        "price_total_ex_vat": "float",
+        "price_total_inc_vat": "float",
+        "price_total_ex_vat_label": "string",
+        "price_total_inc_vat_label": "string",
+        "thumb": {
+          "id": "integer",
+          "title": "string",
+          "description": "string",
+          "url": "string",
+          "url_miniature": "string",
+          "url_vignette": "string",
+          "url_g_miniature": "string",
+          "url_g_vignette": "string"
+        }
+      }
+    ],
+    "options": [
+      {
+        "option_id": "integer",
+        "type": "string",
+        "name": "string",
+        "description": "string",
+        "quantity": "integer",
+        "value": "string",
+        "options": [
+          "string"
+        ],
+        "price_inc_vat": "float",
+        "price_ex_vat": "float",
+        "price_inc_vat_label": "string",
+        "price_ex_vat_label": "string"
+      }
+    ],
+    "voucher": {
+      "code": "string",
+      "value": "float",
+      "type": "string",
+      "label": "string"
+    },
+    "is_duty_free": "boolean",
+    "price_subtotal_ex_vat": "float",
+    "price_subtotal_inc_vat": "float",
+    "price_total_ecotax": "float",
+    "price_total_ex_vat": "float",
+    "price_total_vat": "float",
+    "price_total_inc_vat": "float",
+    "price_subtotal_ex_vat_label": "string",
+    "price_subtotal_inc_vat_label": "string",
+    "price_total_ecotax_label": "string",
+    "price_total_ex_vat_label": "string",
+    "price_total_vat_label": "string",
+    "price_total_inc_vat_label": "string",
+    "shipping": {
+      "carrier_id": "integer",
+      "name": "string",
+      "description": "string",
+      "price_ex_vat": "float",
+      "price_inc_vat": "float",
+      "price_ex_vat_label": "string",
+      "price_inc_vat_label": "string",
+      "vat_rate": "float",
+      "weight": "integer",
+      "is_free": "boolean",
+      "destination": "string",
+      "picking_number": "string",
+      "require_scheduling": "string",
+      "scheduled_date": "string",
+      "scheduled_hour": "string"
+    }
+  }
+}
+
+get /cart/options.jsonListe les options à la commande
+Description
+Liste les options à la commande
+
+Paramètres
+Paramètre	Valeur	Type	Description
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+price_label	Label des prix dans la devise du site
+Format de sortie
+Schéma JSONModèle
+{
+  "available": [
+    {
+      "option_id": "integer",
+      "type": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": "integer",
+      "value": "string",
+      "options": [
+        "string"
+      ],
+      "price_inc_vat": "float",
+      "price_ex_vat": "float",
+      "price_inc_vat_label": "string",
+      "price_ex_vat_label": "string"
+    }
+  ],
+  "in_cart": [
+    {
+      "option_id": "integer",
+      "type": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": "integer",
+      "value": "string",
+      "options": [
+        "string"
+      ],
+      "price_inc_vat": "float",
+      "price_ex_vat": "float",
+      "price_inc_vat_label": "string",
+      "price_ex_vat_label": "string"
+    }
+  ]
+}
+
+put /cart/options/{option_id}.jsonAjoute une option
+Description
+Ajoute une option
+
+Paramètres
+Paramètre	Valeur	Type	Description
+option_id	
+(requis)
+integer	Identifiant de l'option à la commande
+value	
+string	Valeur de l'option à la commande pour les options de type zone de texte ou liste déroulante
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+price_label	Label des prix dans la devise du site
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Option introuvable
+4010	Le panier est vide, impossible d'ajouter une option à la commande
+Format de sortie
+Schéma JSONModèle
+{
+  "summary": [
+    {
+      "status": "string",
+      "message": "string",
+      "id": "integer",
+      "max": "integer"
+    }
+  ],
+  "options": {
+    "available": [
+      {
+        "option_id": "integer",
+        "type": "string",
+        "name": "string",
+        "description": "string",
+        "quantity": "integer",
+        "value": "string",
+        "options": [
+          "string"
+        ],
+        "price_inc_vat": "float",
+        "price_ex_vat": "float",
+        "price_inc_vat_label": "string",
+        "price_ex_vat_label": "string"
+      }
+    ],
+    "in_cart": [
+      {
+        "option_id": "integer",
+        "type": "string",
+        "name": "string",
+        "description": "string",
+        "quantity": "integer",
+        "value": "string",
+        "options": [
+          "string"
+        ],
+        "price_inc_vat": "float",
+        "price_ex_vat": "float",
+        "price_inc_vat_label": "string",
+        "price_ex_vat_label": "string"
+      }
+    ]
+  },
+  "cart": {
+    "currency": "string",
+    "min_order_amount": "float",
+    "items_count": "integer",
+    "items": [
+      {
+        "variant_id": "integer",
+        "type": "string",
+        "name": "string",
+        "sku": "string",
+        "product_id": "integer",
+        "product_name": "string",
+        "product_description": "string",
+        "product_header": "string",
+        "product_excerpt": "string",
+        "product_url": "string",
+        "is_discounted": "boolean",
+        "discount_rate": "float",
+        "price_ex_vat": "float",
+        "price_inc_vat": "float",
+        "price_base_ex_vat": "float",
+        "price_base_inc_vat": "float",
+        "price_ecotax": "float",
+        "price_ex_vat_label": "string",
+        "price_inc_vat_label": "string",
+        "price_base_ex_vat_label": "string",
+        "price_base_inc_vat_label": "string",
+        "price_ecotax_label": "string",
+        "quantity": "integer",
+        "quantity_max": "integer",
+        "quantity_max_warn": "boolean",
+        "price_total_ex_vat": "float",
+        "price_total_inc_vat": "float",
+        "price_total_ex_vat_label": "string",
+        "price_total_inc_vat_label": "string",
+        "thumb": {
+          "id": "integer",
+          "title": "string",
+          "description": "string",
+          "url": "string",
+          "url_miniature": "string",
+          "url_vignette": "string",
+          "url_g_miniature": "string",
+          "url_g_vignette": "string"
+        }
+      }
+    ],
+    "options": [
+      {
+        "option_id": "integer",
+        "type": "string",
+        "name": "string",
+        "description": "string",
+        "quantity": "integer",
+        "value": "string",
+        "options": [
+          "string"
+        ],
+        "price_inc_vat": "float",
+        "price_ex_vat": "float",
+        "price_inc_vat_label": "string",
+        "price_ex_vat_label": "string"
+      }
+    ],
+    "voucher": {
+      "code": "string",
+      "value": "float",
+      "type": "string",
+      "label": "string"
+    },
+    "is_duty_free": "boolean",
+    "price_subtotal_ex_vat": "float",
+    "price_subtotal_inc_vat": "float",
+    "price_total_ecotax": "float",
+    "price_total_ex_vat": "float",
+    "price_total_vat": "float",
+    "price_total_inc_vat": "float",
+    "price_subtotal_ex_vat_label": "string",
+    "price_subtotal_inc_vat_label": "string",
+    "price_total_ecotax_label": "string",
+    "price_total_ex_vat_label": "string",
+    "price_total_vat_label": "string",
+    "price_total_inc_vat_label": "string",
+    "shipping": {
+      "carrier_id": "integer",
+      "name": "string",
+      "description": "string",
+      "price_ex_vat": "float",
+      "price_inc_vat": "float",
+      "price_ex_vat_label": "string",
+      "price_inc_vat_label": "string",
+      "vat_rate": "float",
+      "weight": "integer",
+      "is_free": "boolean",
+      "destination": "string",
+      "picking_number": "string",
+      "require_scheduling": "string",
+      "scheduled_date": "string",
+      "scheduled_hour": "string"
+    }
+  }
+}
+
+delete /cart/options/{option_id}.jsonSupprime une option
+Description
+Supprime une option
+
+Paramètres
+Paramètre	Valeur	Type	Description
+option_id	
+(requis)
+integer	Identifiant de l'option à la commande
+Format de sortie
+Schéma JSONModèle
+{
+  "currency": "string",
+  "min_order_amount": "float",
+  "items_count": "integer",
+  "items": [
+    {
+      "variant_id": "integer",
+      "type": "string",
+      "name": "string",
+      "sku": "string",
+      "product_id": "integer",
+      "product_name": "string",
+      "product_description": "string",
+      "product_header": "string",
+      "product_excerpt": "string",
+      "product_url": "string",
+      "is_discounted": "boolean",
+      "discount_rate": "float",
+      "price_ex_vat": "float",
+      "price_inc_vat": "float",
+      "price_base_ex_vat": "float",
+      "price_base_inc_vat": "float",
+      "price_ecotax": "float",
+      "price_ex_vat_label": "string",
+      "price_inc_vat_label": "string",
+      "price_base_ex_vat_label": "string",
+      "price_base_inc_vat_label": "string",
+      "price_ecotax_label": "string",
+      "quantity": "integer",
+      "quantity_max": "integer",
+      "quantity_max_warn": "boolean",
+      "price_total_ex_vat": "float",
+      "price_total_inc_vat": "float",
+      "price_total_ex_vat_label": "string",
+      "price_total_inc_vat_label": "string",
+      "thumb": {
+        "id": "integer",
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "url_miniature": "string",
+        "url_vignette": "string",
+        "url_g_miniature": "string",
+        "url_g_vignette": "string"
+      }
+    }
+  ],
+  "options": [
+    {
+      "option_id": "integer",
+      "type": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": "integer",
+      "value": "string",
+      "options": [
+        "string"
+      ],
+      "price_inc_vat": "float",
+      "price_ex_vat": "float",
+      "price_inc_vat_label": "string",
+      "price_ex_vat_label": "string"
+    }
+  ],
+  "voucher": {
+    "code": "string",
+    "value": "float",
+    "type": "string",
+    "label": "string"
+  },
+  "is_duty_free": "boolean",
+  "price_subtotal_ex_vat": "float",
+  "price_subtotal_inc_vat": "float",
+  "price_total_ecotax": "float",
+  "price_total_ex_vat": "float",
+  "price_total_vat": "float",
+  "price_total_inc_vat": "float",
+  "price_subtotal_ex_vat_label": "string",
+  "price_subtotal_inc_vat_label": "string",
+  "price_total_ecotax_label": "string",
+  "price_total_ex_vat_label": "string",
+  "price_total_vat_label": "string",
+  "price_total_inc_vat_label": "string",
+  "shipping": {
+    "carrier_id": "integer",
+    "name": "string",
+    "description": "string",
+    "price_ex_vat": "float",
+    "price_inc_vat": "float",
+    "price_ex_vat_label": "string",
+    "price_inc_vat_label": "string",
+    "vat_rate": "float",
+    "weight": "integer",
+    "is_free": "boolean",
+    "destination": "string",
+    "picking_number": "string",
+    "require_scheduling": "string",
+    "scheduled_date": "string",
+    "scheduled_hour": "string"
+  }
+}
+
+get /cart/voucher.jsonRetourne le bon du panier
+Description
+Retourne le bon du panier
+
+Format de sortie
+Schéma JSONModèle
+{
+  "code": "string",
+  "value": "float",
+  "type": "string",
+  "label": "string"
+}
+
+delete /cart/voucher.jsonSupprime le bon du panier
+Description
+Supprime le bon du panier
+
+Paramètres
+Paramètre	Valeur	Type	Description
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+price_label	Label des prix dans la devise du site
+put /cart/voucher.jsonAjoute un bon au panier
+Description
+Ajoute un bon au panier
+
+Paramètres
+Paramètre	Valeur	Type	Description
+code	
+string	Code du bon de réduction
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+price_label	Label des prix dans la devise du site
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4001	Un ou plusieurs paramètres obligatoires sont manquants dans la requete
+4007	Bon invalide ou date de validité dépassée
+4007	L'utilisateur a déjà utilisé le bon
+4307	Le bon est réservé, l'utilisateur doit s'authentifier
+4308	L'utilisateur n'est pas autorisé à utiliser le bon
+4008	Le bon n'est utilisable sur aucun produit du panier.
+Format de sortie
+Schéma JSONModèle
+{
+  "currency": "string",
+  "min_order_amount": "float",
+  "items_count": "integer",
+  "items": [
+    {
+      "variant_id": "integer",
+      "type": "string",
+      "name": "string",
+      "sku": "string",
+      "product_id": "integer",
+      "product_name": "string",
+      "product_description": "string",
+      "product_header": "string",
+      "product_excerpt": "string",
+      "product_url": "string",
+      "is_discounted": "boolean",
+      "discount_rate": "float",
+      "price_ex_vat": "float",
+      "price_inc_vat": "float",
+      "price_base_ex_vat": "float",
+      "price_base_inc_vat": "float",
+      "price_ecotax": "float",
+      "price_ex_vat_label": "string",
+      "price_inc_vat_label": "string",
+      "price_base_ex_vat_label": "string",
+      "price_base_inc_vat_label": "string",
+      "price_ecotax_label": "string",
+      "quantity": "integer",
+      "quantity_max": "integer",
+      "quantity_max_warn": "boolean",
+      "price_total_ex_vat": "float",
+      "price_total_inc_vat": "float",
+      "price_total_ex_vat_label": "string",
+      "price_total_inc_vat_label": "string",
+      "thumb": {
+        "id": "integer",
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "url_miniature": "string",
+        "url_vignette": "string",
+        "url_g_miniature": "string",
+        "url_g_vignette": "string"
+      }
+    }
+  ],
+  "options": [
+    {
+      "option_id": "integer",
+      "type": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": "integer",
+      "value": "string",
+      "options": [
+        "string"
+      ],
+      "price_inc_vat": "float",
+      "price_ex_vat": "float",
+      "price_inc_vat_label": "string",
+      "price_ex_vat_label": "string"
+    }
+  ],
+  "voucher": {
+    "code": "string",
+    "value": "float",
+    "type": "string",
+    "label": "string"
+  },
+  "is_duty_free": "boolean",
+  "price_subtotal_ex_vat": "float",
+  "price_subtotal_inc_vat": "float",
+  "price_total_ecotax": "float",
+  "price_total_ex_vat": "float",
+  "price_total_vat": "float",
+  "price_total_inc_vat": "float",
+  "price_subtotal_ex_vat_label": "string",
+  "price_subtotal_inc_vat_label": "string",
+  "price_total_ecotax_label": "string",
+  "price_total_ex_vat_label": "string",
+  "price_total_vat_label": "string",
+  "price_total_inc_vat_label": "string",
+  "shipping": {
+    "carrier_id": "integer",
+    "name": "string",
+    "description": "string",
+    "price_ex_vat": "float",
+    "price_inc_vat": "float",
+    "price_ex_vat_label": "string",
+    "price_inc_vat_label": "string",
+    "vat_rate": "float",
+    "weight": "integer",
+    "is_free": "boolean",
+    "destination": "string",
+    "picking_number": "string",
+    "require_scheduling": "string",
+    "scheduled_date": "string",
+    "scheduled_hour": "string"
+  }
+}
+
+get /cart/backup.jsonSauvegarde le panier
+Description
+Retourne un jeton qui identifie le contenu du panier.
+
+Format de sortie
+Schéma JSONModèle
+{
+  "backup": "string"
+}
+
+put /cart/backup.jsonRestaure le panier
+Description
+La restauration du panier utilise un jeton obtenu précédement par la sauvegarde du panier.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+backup	
+(requis)
+string	Jeton
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4003	La restauration du panier a échouée
+get /cart/carriers.jsonListe les transporteurs
+Description
+Retourne la liste des transporteurs possibles pour le panier actuel, suivant les produits et l'adresse de destination. Il est également possible de forcer arbitrairement un pays.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+country_id	
+integer	Pays
+zipcode	
+string	Code postal (pour la france)
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "name": "string",
+    "shipping_delay": "string",
+    "is_free": "boolean",
+    "price_ex_vat": "float",
+    "price_inc_vat": "float",
+    "price_ex_vat_label": "string",
+    "price_inc_vat_label": "string",
+    "description": "string",
+    "is_current": "boolean",
+    "type": "string",
+    "company": "string",
+    "address": "string",
+    "zipcode": "string",
+    "city": "string",
+    "country": "string",
+    "country_id": "integer",
+    "country_code": "string",
+    "require_scheduling": "string",
+    "scheduling_rules": [
+      null
+    ]
+  }
+]
+
+get /cart/carriers/{carrier_id}/schedule.jsonDisponibilité d'un date de livraison
+Description
+Teste la disponibilité d'un date de livraison pour le transporteur indiqué.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+carrier_id	
+(requis)
+integer	Identifiant unique du transporteur
+scheduled_date	
+(requis)
+string	Date de livraison souhaitée
+scheduled_hour	
+string	Heure de livraison souhaitée
+get /cart/carriers/{carrier_id}/estimation.jsonEstimation des frais de port
+Description
+Retourne une estimation des frais de port par le transporteur désigné. Si le pays n'est pas indiqué, c'est celui de l'adresse de livraison qui est utilisé.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+carrier_id	
+(requis)
+integer	Identifiant unique du transporteur
+country_id	
+integer	Pays
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+price_label	Label des prix dans la devise du site
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "price_ex_vat": "float",
+    "price_inc_vat": "float",
+    "price_ex_vat_label": "string",
+    "price_inc_vat_label": "string"
+  }
+]
+
+get /cart/carriers/{carrier_id}/pickup.jsonCherche des points relais
+Description
+Recherche les points relais les plus proches de l'adresse indiquée.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+carrier_id	
+(requis)
+integer	Identifiant unique du transporteur
+address	
+string	Adresse
+city	
+string	Ville
+zipcode	
+string	Code postal
+country_id	
+integer	Identifiant du pays
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "relay_id": "string",
+    "name": "string",
+    "address": "string",
+    "address2": "string",
+    "address3": "string",
+    "zipcode": "string",
+    "city": "string",
+    "country": "string",
+    "hint": "string",
+    "distance": "float",
+    "coord": {
+      "lat": "float",
+      "lon": "float"
+    },
+    "opening_hours": [
+      null
+    ],
+    "closing_period": [
+      null
+    ]
+  }
+]
+
+put /cart/shipping.jsonChange de transporteur
+Paramètres
+Paramètre	Valeur	Type	Description
+carrier_id	
+(requis)
+integer	Identifiant unique du transporteur
+scheduled_date	
+string	Date de livraison souhaitée
+scheduled_hour	
+string	Heure de livraison souhaitée
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4009	Transporteur introuvable
+4005	Le transporteur n'est pas disponible pour le panier
+put /cart/addresses.jsonModifie les adresses de la commande
+Description
+Modifie à la fois les adresses de livraison et facturation.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+billing[firstname]	
+(requis)
+string	Prénom de l'adresse de facturation
+billing[lastname]	
+(requis)
+string	Nom de l'adresse de facturation
+billing[civility]	
+m
+string	Civilité de l'adresse de facturation
+billing[address]	
+(requis)
+string	Adresse de facturation
+billing[zipcode]	
+(requis)
+string	Code postale de l'adresse de facturation
+billing[city]	
+(requis)
+string	Ville de l'adresse de facturation
+billing[country_id]	
+(requis)
+string	Pays de l'adresse de facturation
+billing[phone]	
+(requis)
+string	Téléphone de l'adresse de facturation
+use_billing_as_shipping	
+boolean	Flag permettant d'indiquer que les données envoyée pour l'adresse de facturation, renseignent également l'adresse de livraion
+shipping[firstname]	
+string	Prénom de l'adresse de livraison
+shipping[lastname]	
+string	Nom de l'adresse de livraison
+shipping[civility]	
+string	Civilité de l'adresse de livraison
+shipping[address]	
+string	Adresse de livraison
+shipping[zipcode]	
+string	Code postale de l'adresse de livraison
+shipping[city]	
+string	Ville de l'adresse de livraison
+shipping[country_id]	
+string	Pays de l'adresse de livraison
+shipping[phone]	
+string	Téléphone de l'adresse de livraison
+consent	
+boolean	Donne le consentement au traitement des données
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4001	Un ou plusieurs paramètres obligatoires sont manquants dans la requete
+4002	Les données envoyées comportent des erreurs
+get /cart/addresses.jsonRetourne les adresse de la commande
+Format de sortie
+Schéma JSONModèle
+{
+  "billing": {
+    "civility": "string",
+    "lastname": "string",
+    "firstname": "string",
+    "company": "string",
+    "address": "string",
+    "zipcode": "string",
+    "city": "string",
+    "country_id": "integer",
+    "country": "string",
+    "country_code": "string",
+    "phone": "string"
+  },
+  "use_billing_as_shipping": "boolean",
+  "shipping": {
+    "civility": "string",
+    "lastname": "string",
+    "firstname": "string",
+    "company": "string",
+    "address": "string",
+    "zipcode": "string",
+    "city": "string",
+    "country_id": "integer",
+    "country": "string",
+    "country_code": "string",
+    "phone": "string"
+  },
+  "is_consent_required": "boolean"
+}
+
+get /cart/comment.jsonRetourne le commentaire
+Description
+Retourne le commentaire
+
+Format de sortie
+Schéma JSONModèle
+{
+  "comment": "string"
+}
+
+put /cart/comment.jsonAjoute un commentaire
+Description
+Ajoute un commentaire
+
+Paramètres
+Paramètre	Valeur	Type	Description
+comment	
+string	Commentaire
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4002	Le commentaire dépasse les 255 caractères
+catalogAfficher/MasquerLister les actionsDéplier les actions
+get /catalog/products.jsonListe les produits
+Description
+Liste les produits
+
+Paramètres
+Paramètre	Valeur	Type	Description
+spotlights	
+flag	Limite la la liste des produits aux produits vedettes
+tags	
+array	Liste des tags auxquels restreindre les produits
+tags_rule	
+or (default)
+string	Determine la règle en cas de recherche mulit-tags.
+or	Les produits doivent appartenir à au moins 1 tag de la liste donnée
+and	Les produits doivent appartenir à tous les tags de la liste donnée
+in_stock	
+string	Restreint la liste des produits en fonction de l'état de leur stock.
+yes	Au moins une des variantes doit être en stock
+no	Toutes les variantes du produit sont en rupture
+available	
+string	Restreint la liste des produits en fonction de leur date de disponibilité.
+yes	Restreint les resultats aux produits disponibles
+no	Restreint les resultats aux produits indisponibles
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+name / -name	Tri selon l'intitulé du produit
+id / -id	Tri selon l'identifiant unique du produit
+rate / -rate	Tri selon la note moyenne des produits
+price / -price	Tri selon le prix minimal du produit
+date / -date	Tri selon la date de disponibilité
+spotlight / -spotlight	Tri les produits vedette
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+variants	Inclut les variantes de chaque produit
+description	Inclut le champ description de chaque produit
+texts	Inclut les champs texte1 à texte15 de chaque produit
+price_label	Label des prix dans la devise du site
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "type": "string",
+    "name": "string",
+    "slug": "string",
+    "category_id": "integer",
+    "category_name": "string",
+    "category_slug": "string",
+    "brand_id": "integer",
+    "brand_name": "string",
+    "header": "string",
+    "description": "string",
+    "release_date": "string",
+    "release_date_f": "string",
+    "release_date_timestamp": "integer",
+    "is_virtual": "boolean",
+    "is_spotlight": "boolean",
+    "is_discounted": "boolean",
+    "rate": "float",
+    "currency": "string",
+    "price_min_ex_vat": "float",
+    "price_min_inc_vat": "float",
+    "price_max_ex_vat": "float",
+    "price_max_inc_vat": "float",
+    "price_base_ex_vat": "float",
+    "price_base_inc_vat": "float",
+    "price_ex_vat_label": "string",
+    "price_inc_vat_label": "string",
+    "price_min_ex_vat_label": "string",
+    "price_min_inc_vat_label": "string",
+    "price_max_ex_vat_label": "string",
+    "price_max_inc_vat_label": "string",
+    "price_base_ex_vat_label": "string",
+    "price_base_inc_vat_label": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer",
+    "tags": "string",
+    "url": "string",
+    "main_thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "thumbs": [
+      {
+        "id": "integer",
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "url_miniature": "string",
+        "url_vignette": "string",
+        "url_g_miniature": "string",
+        "url_g_vignette": "string"
+      }
+    ],
+    "available": "string",
+    "in_stock": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "variants": [
+      {
+        "id": "integer",
+        "name": "string",
+        "reference": "string",
+        "gtin": "string",
+        "condition": "string",
+        "currency": "string",
+        "price_ex_vat": "float",
+        "price_inc_vat": "float",
+        "price_base_ex_vat": "float",
+        "price_base_inc_vat": "float",
+        "price_ex_vat_label": "string",
+        "price_inc_vat_label": "string",
+        "price_base_ex_vat_label": "string",
+        "price_base_inc_vat_label": "string",
+        "is_discounted": "boolean",
+        "thumb": {
+          "id": "integer",
+          "title": "string",
+          "description": "string",
+          "url": "string",
+          "url_miniature": "string",
+          "url_vignette": "string",
+          "url_g_miniature": "string",
+          "url_g_vignette": "string"
+        },
+        "is_available": "boolean",
+        "in_stock": "boolean"
+      }
+    ],
+    "categories": [
+      {
+        "id": "integer",
+        "name": "string",
+        "slug": "string",
+        "description": "string",
+        "is_main": "boolean",
+        "products_count": "integer",
+        "url": "string",
+        "thumb": "Media_Thumb"
+      }
+    ],
+    "has_tier_prices": "boolean"
+  }
+]
+
+get /catalog/categories/{category_id}/products.jsonListe les produits d'une catégorie
+Description
+Liste les produits d'une catégorie
+
+Paramètres
+Paramètre	Valeur	Type	Description
+category_id	
+(requis)
+integer	Identifiant de la catégorie
+spotlights	
+flag	Limite la la liste des produits aux produits vedettes
+tags	
+array	Liste des tags auxquels restreindre les produits
+tags_rule	
+or (default)
+string	Determine la règle en cas de recherche mulit-tags.
+or	Les produits doivent appartenir à au moins 1 tag de la liste donnée
+and	Les produits doivent appartenir à tous les tags de la liste donnée
+in_stock	
+string	Restreint la liste des produits en fonction de l'état de leur stock.
+yes	Au moins une des variantes doit être en stock
+no	Toutes les variantes du produit sont en rupture
+available	
+string	Restreint la liste des produits en fonction de leur date de disponibilité.
+yes	Restreint les resultats aux produits disponibles
+no	Restreint les resultats aux produits indisponibles
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+name / -name	Tri selon l'intitulé du produit
+id / -id	Tri selon l'identifiant unique du produit
+rate / -rate	Tri selon la note moyenne des produits
+price / -price	Tri selon le prix minimal du produit
+date / -date	Tri selon la date de disponibilité
+spotlight / -spotlight	Tri les produits vedette
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+categories	Liste les catégories de chaque produit
+price_label	Label des prix dans la devise du site
+variants	Inclut les variantes de chaque produit
+description	Inclut le champ description de chaque produit
+texts	Inclut les champs texte1 à texte15 de chaque produit
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "type": "string",
+    "name": "string",
+    "slug": "string",
+    "category_id": "integer",
+    "category_name": "string",
+    "category_slug": "string",
+    "brand_id": "integer",
+    "brand_name": "string",
+    "header": "string",
+    "description": "string",
+    "release_date": "string",
+    "release_date_f": "string",
+    "release_date_timestamp": "integer",
+    "is_virtual": "boolean",
+    "is_spotlight": "boolean",
+    "is_discounted": "boolean",
+    "rate": "float",
+    "currency": "string",
+    "price_min_ex_vat": "float",
+    "price_min_inc_vat": "float",
+    "price_max_ex_vat": "float",
+    "price_max_inc_vat": "float",
+    "price_base_ex_vat": "float",
+    "price_base_inc_vat": "float",
+    "price_ex_vat_label": "string",
+    "price_inc_vat_label": "string",
+    "price_min_ex_vat_label": "string",
+    "price_min_inc_vat_label": "string",
+    "price_max_ex_vat_label": "string",
+    "price_max_inc_vat_label": "string",
+    "price_base_ex_vat_label": "string",
+    "price_base_inc_vat_label": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer",
+    "tags": "string",
+    "url": "string",
+    "main_thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "thumbs": [
+      {
+        "id": "integer",
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "url_miniature": "string",
+        "url_vignette": "string",
+        "url_g_miniature": "string",
+        "url_g_vignette": "string"
+      }
+    ],
+    "available": "string",
+    "in_stock": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "variants": [
+      {
+        "id": "integer",
+        "name": "string",
+        "reference": "string",
+        "gtin": "string",
+        "condition": "string",
+        "currency": "string",
+        "price_ex_vat": "float",
+        "price_inc_vat": "float",
+        "price_base_ex_vat": "float",
+        "price_base_inc_vat": "float",
+        "price_ex_vat_label": "string",
+        "price_inc_vat_label": "string",
+        "price_base_ex_vat_label": "string",
+        "price_base_inc_vat_label": "string",
+        "is_discounted": "boolean",
+        "thumb": {
+          "id": "integer",
+          "title": "string",
+          "description": "string",
+          "url": "string",
+          "url_miniature": "string",
+          "url_vignette": "string",
+          "url_g_miniature": "string",
+          "url_g_vignette": "string"
+        },
+        "is_available": "boolean",
+        "in_stock": "boolean"
+      }
+    ],
+    "categories": [
+      {
+        "id": "integer",
+        "name": "string",
+        "slug": "string",
+        "description": "string",
+        "is_main": "boolean",
+        "products_count": "integer",
+        "url": "string",
+        "thumb": "Media_Thumb"
+      }
+    ],
+    "has_tier_prices": "boolean"
+  }
+]
+
+get /catalog/categories.jsonListe les catégories
+Description
+Liste les catégories
+
+Paramètres
+Paramètre	Valeur	Type	Description
+sort	
+array	Ordres de tri parmis les critères suivants :
+position / -position	Tri selon le classement de la catégorie
+title / -title	Tri selon l'intitulé de la catégorie
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+products_count	Nombre de produits des catégories
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "name": "string",
+    "slug": "string",
+    "description": "string",
+    "is_main": "boolean",
+    "products_count": "integer",
+    "url": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    }
+  }
+]
+
+get /catalog/tags.jsonListe les tags
+Description
+Liste les tags
+
+Paramètres
+Paramètre	Valeur	Type	Description
+sort	
+array	Ordres de tri parmis les critères suivants :
+name / -name	Tri alphabétique
+weight / -weight	Tri par poids
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "name": "string",
+    "count": "integer",
+    "weight": "integer"
+  }
+]
+
+get /catalog/categories/{category_id}/tags.jsonListe les tags d'une catégorie
+Description
+Liste les tags d'une catégorie (limité à 500 tags)
+
+Paramètres
+Paramètre	Valeur	Type	Description
+category_id	
+(requis)
+integer	Identifiant de la catégorie
+sort	
+array	Ordres de tri parmis les critères suivants :
+name / -name	Tri alphabétique
+weight / -weight	Tri par poids
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "name": "string",
+    "count": "integer",
+    "weight": "integer"
+  }
+]
+
+get /catalog/products/{product_id}.jsonRetourne le détail d'un produit
+Description
+Retourne le détail d'un produit
+
+Paramètres
+Paramètre	Valeur	Type	Description
+product_id	
+(requis)
+integer	Identifiant du produit
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+categories	Inclut la liste des catégories du produit
+price_label	Label des prix dans la devise du site
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Ressource introuvable
+Format de sortie
+Schéma JSONModèle
+{
+  "id": "integer",
+  "type": "string",
+  "name": "string",
+  "slug": "string",
+  "category_id": "integer",
+  "category_name": "string",
+  "category_slug": "string",
+  "brand_id": "integer",
+  "brand_name": "string",
+  "header": "string",
+  "description": "string",
+  "release_date": "string",
+  "release_date_f": "string",
+  "release_date_timestamp": "integer",
+  "is_virtual": "boolean",
+  "is_spotlight": "boolean",
+  "is_discounted": "boolean",
+  "rate": "float",
+  "currency": "string",
+  "price_min_ex_vat": "float",
+  "price_min_inc_vat": "float",
+  "price_max_ex_vat": "float",
+  "price_max_inc_vat": "float",
+  "price_base_ex_vat": "float",
+  "price_base_inc_vat": "float",
+  "price_ex_vat_label": "string",
+  "price_inc_vat_label": "string",
+  "price_min_ex_vat_label": "string",
+  "price_min_inc_vat_label": "string",
+  "price_max_ex_vat_label": "string",
+  "price_max_inc_vat_label": "string",
+  "price_base_ex_vat_label": "string",
+  "price_base_inc_vat_label": "string",
+  "has_comments_open": "boolean",
+  "comments_count": "integer",
+  "tags": "string",
+  "url": "string",
+  "main_thumb": {
+    "id": "integer",
+    "title": "string",
+    "description": "string",
+    "url": "string",
+    "url_miniature": "string",
+    "url_vignette": "string",
+    "url_g_miniature": "string",
+    "url_g_vignette": "string"
+  },
+  "thumbs": [
+    {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    }
+  ],
+  "available": "string",
+  "in_stock": "string",
+  "text1": "string",
+  "text2": "string",
+  "text3": "string",
+  "text4": "string",
+  "text5": "string",
+  "text6": "string",
+  "text7": "string",
+  "text8": "string",
+  "text9": "string",
+  "text10": "string",
+  "text11": "string",
+  "text12": "string",
+  "text13": "string",
+  "text14": "string",
+  "text15": "string",
+  "variants": [
+    {
+      "id": "integer",
+      "name": "string",
+      "reference": "string",
+      "gtin": "string",
+      "condition": "string",
+      "currency": "string",
+      "price_ex_vat": "float",
+      "price_inc_vat": "float",
+      "price_base_ex_vat": "float",
+      "price_base_inc_vat": "float",
+      "price_ex_vat_label": "string",
+      "price_inc_vat_label": "string",
+      "price_base_ex_vat_label": "string",
+      "price_base_inc_vat_label": "string",
+      "is_discounted": "boolean",
+      "thumb": {
+        "id": "integer",
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "url_miniature": "string",
+        "url_vignette": "string",
+        "url_g_miniature": "string",
+        "url_g_vignette": "string"
+      },
+      "is_available": "boolean",
+      "in_stock": "boolean"
+    }
+  ],
+  "categories": [
+    {
+      "id": "integer",
+      "name": "string",
+      "slug": "string",
+      "description": "string",
+      "is_main": "boolean",
+      "products_count": "integer",
+      "url": "string",
+      "thumb": "Media_Thumb"
+    }
+  ],
+  "has_tier_prices": "boolean"
+}
+
+get /catalog/products/{product_id}/tier_prices.jsonTarifs dégressifs
+Description
+Retourne la grille de tarifs dégressifs associée au produit.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+product_id	
+(requis)
+integer	Identifiant du produit
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Ressource introuvable
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "qt": "int",
+    "discount": "float"
+  }
+]
+
+get /catalog/products/{product_id}/captcha.jsonGénère un captcha
+Description
+Génère un nouveau captcha pour la prochaine évaluation postée par l'utilisateur courant. Ce endpoint est inutile si reCaptha est utilisé.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+product_id	
+(requis)
+integer	Identifiant du produit
+Format de sortie
+Schéma JSONModèle
+{
+  "captcha": "string"
+}
+
+get /catalog/comments.jsonListe les dernières évaluations
+Description
+Liste les dernières évaluations
+
+Paramètres
+Paramètre	Valeur	Type	Description
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication de l'évaluation
+rate / -rate	Tri selon la note moyenne des produits
+Format de sortie
+Schéma JSONModèle
+{
+  "comments": [
+    {
+      "id": "integer",
+      "product_id": "integer",
+      "comment": "string",
+      "rate": "float",
+      "author": "string",
+      "date": "string",
+      "date_f": "string",
+      "date_timestamp": "integer"
+    }
+  ]
+}
+
+get /catalog/products/{product_id}/comments.jsonListe les évaluations d'un produit
+Description
+Liste les évaluations d'un produit
+
+Paramètres
+Paramètre	Valeur	Type	Description
+product_id	
+(requis)
+integer	Identifiant du produit
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de publication de l'évaluation
+rate / -rate	Tri selon la note moyenne des produits
+Format de sortie
+Schéma JSONModèle
+{
+  "comments": [
+    {
+      "id": "integer",
+      "product_id": "integer",
+      "comment": "string",
+      "rate": "float",
+      "author": "string",
+      "date": "string",
+      "date_f": "string",
+      "date_timestamp": "integer"
+    }
+  ],
+  "has_comments_open": "boolean",
+  "has_captcha": "boolean",
+  "captcha": "string",
+  "is_consent_required": "boolean"
+}
+
+post /catalog/products/{product_id}/comments.jsonPublie une évaluation
+Description
+Publie une évaluation
+
+Paramètres
+Paramètre	Valeur	Type	Description
+product_id	
+(requis)
+integer	Identifiant du produit
+comment	
+string	Commentaire produit
+rate	
+integer	Note donnée par l'utilisateur entre 0 et 10
+author	
+string	Auteur
+captcha	
+string	Réponse au dernier captcha généré pour ce produit
+consent	
+boolean	Donne le consentement au traitement des données
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Produit introuvable
+4002	Les données envoyées comportent des erreurs
+Format de sortie
+Schéma JSONModèle
+{
+  "id": "integer",
+  "is_published": "boolean",
+  "new_captcha": "string"
+}
+
+get /catalog/products/{product_id}/linked.jsonListe les produits associés
+Description
+Liste les produits associés
+
+Paramètres
+Paramètre	Valeur	Type	Description
+product_id	
+(requis)
+integer	Identifiant du produit
+category_id	
+integer	Identifiant de catégorie
+random_fill	
+boolean	Remplit aléatoirement la liste des produits avec des produits au hasard jusqu'à la valeur du paramètre limit
+limit	
+integer	Limit le nombre de produits associés (defaut : 20, maximum : 20)
+sort	
+array	Ordres de tri parmis les critères suivants :
+name / -name	Tri selon l'intitulé du produit
+rate / -rate	Tri selon la note moyenne des produits
+price / -price	Tri selon le prix minimal du produit
+date / -date	Tri selon la date de disponibilité
+spotlight / -spotlight	Tri les produits vedette
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+variants	Inclut les variantes de chaque produit
+description	Inclut le champ description de chaque produit
+texts	Inclut les champs texte1 à texte15 de chaque produit
+price_label	Label des prix dans la devise du site
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "type": "string",
+    "name": "string",
+    "slug": "string",
+    "category_id": "integer",
+    "category_name": "string",
+    "category_slug": "string",
+    "brand_id": "integer",
+    "brand_name": "string",
+    "header": "string",
+    "description": "string",
+    "release_date": "string",
+    "release_date_f": "string",
+    "release_date_timestamp": "integer",
+    "is_virtual": "boolean",
+    "is_spotlight": "boolean",
+    "is_discounted": "boolean",
+    "rate": "float",
+    "currency": "string",
+    "price_min_ex_vat": "float",
+    "price_min_inc_vat": "float",
+    "price_max_ex_vat": "float",
+    "price_max_inc_vat": "float",
+    "price_base_ex_vat": "float",
+    "price_base_inc_vat": "float",
+    "price_ex_vat_label": "string",
+    "price_inc_vat_label": "string",
+    "price_min_ex_vat_label": "string",
+    "price_min_inc_vat_label": "string",
+    "price_max_ex_vat_label": "string",
+    "price_max_inc_vat_label": "string",
+    "price_base_ex_vat_label": "string",
+    "price_base_inc_vat_label": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer",
+    "tags": "string",
+    "url": "string",
+    "main_thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "thumbs": [
+      {
+        "id": "integer",
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "url_miniature": "string",
+        "url_vignette": "string",
+        "url_g_miniature": "string",
+        "url_g_vignette": "string"
+      }
+    ],
+    "available": "string",
+    "in_stock": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "variants": [
+      {
+        "id": "integer",
+        "name": "string",
+        "reference": "string",
+        "gtin": "string",
+        "condition": "string",
+        "currency": "string",
+        "price_ex_vat": "float",
+        "price_inc_vat": "float",
+        "price_base_ex_vat": "float",
+        "price_base_inc_vat": "float",
+        "price_ex_vat_label": "string",
+        "price_inc_vat_label": "string",
+        "price_base_ex_vat_label": "string",
+        "price_base_inc_vat_label": "string",
+        "is_discounted": "boolean",
+        "thumb": {
+          "id": "integer",
+          "title": "string",
+          "description": "string",
+          "url": "string",
+          "url_miniature": "string",
+          "url_vignette": "string",
+          "url_g_miniature": "string",
+          "url_g_vignette": "string"
+        },
+        "is_available": "boolean",
+        "in_stock": "boolean"
+      }
+    ],
+    "categories": [
+      {
+        "id": "integer",
+        "name": "string",
+        "slug": "string",
+        "description": "string",
+        "is_main": "boolean",
+        "products_count": "integer",
+        "url": "string",
+        "thumb": "Media_Thumb"
+      }
+    ],
+    "has_tier_prices": "boolean"
+  }
+]
+
+get /catalog/products/{product_id}/alsobought.jsonListe les produits egalement achetés
+Description
+Liste les produits egalement achetés
+
+Paramètres
+Paramètre	Valeur	Type	Description
+product_id	
+(requis)
+integer	Identifiant de produit
+category_id	
+integer	Identifiant de catégorie
+limit	
+integer	Limite le nombre de produits associés (defaut : 20, maximum : 20)
+sort	
+array	Ordres de tri parmis les critères suivants :
+name / -name	Tri selon l'intitulé du produit
+rate / -rate	Tri selon la note moyenne des produits
+price / -price	Tri selon le prix minimal du produit
+date / -date	Tri selon la date de disponibilité
+spotlight / -spotlight	Tri les produits vedette
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+variants	Inclut les variantes de chaque produit
+description	Inclut le champ description de chaque produit
+texts	Inclut les champs texte1 à texte15 de chaque produit
+price_label	Label des prix dans la devise du site
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "type": "string",
+    "name": "string",
+    "slug": "string",
+    "category_id": "integer",
+    "category_name": "string",
+    "category_slug": "string",
+    "brand_id": "integer",
+    "brand_name": "string",
+    "header": "string",
+    "description": "string",
+    "release_date": "string",
+    "release_date_f": "string",
+    "release_date_timestamp": "integer",
+    "is_virtual": "boolean",
+    "is_spotlight": "boolean",
+    "is_discounted": "boolean",
+    "rate": "float",
+    "currency": "string",
+    "price_min_ex_vat": "float",
+    "price_min_inc_vat": "float",
+    "price_max_ex_vat": "float",
+    "price_max_inc_vat": "float",
+    "price_base_ex_vat": "float",
+    "price_base_inc_vat": "float",
+    "price_ex_vat_label": "string",
+    "price_inc_vat_label": "string",
+    "price_min_ex_vat_label": "string",
+    "price_min_inc_vat_label": "string",
+    "price_max_ex_vat_label": "string",
+    "price_max_inc_vat_label": "string",
+    "price_base_ex_vat_label": "string",
+    "price_base_inc_vat_label": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer",
+    "tags": "string",
+    "url": "string",
+    "main_thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "thumbs": [
+      {
+        "id": "integer",
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "url_miniature": "string",
+        "url_vignette": "string",
+        "url_g_miniature": "string",
+        "url_g_vignette": "string"
+      }
+    ],
+    "available": "string",
+    "in_stock": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string",
+    "variants": [
+      {
+        "id": "integer",
+        "name": "string",
+        "reference": "string",
+        "gtin": "string",
+        "condition": "string",
+        "currency": "string",
+        "price_ex_vat": "float",
+        "price_inc_vat": "float",
+        "price_base_ex_vat": "float",
+        "price_base_inc_vat": "float",
+        "price_ex_vat_label": "string",
+        "price_inc_vat_label": "string",
+        "price_base_ex_vat_label": "string",
+        "price_base_inc_vat_label": "string",
+        "is_discounted": "boolean",
+        "thumb": {
+          "id": "integer",
+          "title": "string",
+          "description": "string",
+          "url": "string",
+          "url_miniature": "string",
+          "url_vignette": "string",
+          "url_g_miniature": "string",
+          "url_g_vignette": "string"
+        },
+        "is_available": "boolean",
+        "in_stock": "boolean"
+      }
+    ],
+    "categories": [
+      {
+        "id": "integer",
+        "name": "string",
+        "slug": "string",
+        "description": "string",
+        "is_main": "boolean",
+        "products_count": "integer",
+        "url": "string",
+        "thumb": "Media_Thumb"
+      }
+    ],
+    "has_tier_prices": "boolean"
+  }
+]
+
+get /catalog/products/{product_id}/images.jsonListe les illustrations d'un produit
+Description
+Liste les illustrations d'un produit
+
+Paramètres
+Paramètre	Valeur	Type	Description
+product_id	
+(requis)
+integer	Identifiant de produit
+limit	
+integer	Limite le nombre d'images (défaut : 40, maximum : 40)
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "name": "string",
+    "description": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    }
+  }
+]
+
+get /catalog/products/{product_id}/availability.jsonVérifie la disponibilité d'un produit
+Description
+Vérifie la disponibilité d'un produit.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+product_id	
+(requis)
+integer	Identifiant du produit
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Produit introuvable
+Format de sortie
+Schéma JSONModèle
+{
+  "available": "string"
+}
+
+get /catalog/variants/{variant_id}/availability.jsonVérifie la disponibilité d'une variante
+Description
+Vérifie la disponibilité d'une variante
+
+Paramètres
+Paramètre	Valeur	Type	Description
+variant_id	
+(requis)
+integer	Identifiant de la variante
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Variante introuvable
+Format de sortie
+Schéma JSONModèle
+{
+  "is_available": "boolean"
+}
+
+cmsAfficher/MasquerLister les actionsDéplier les actions
+get /cms/posts.jsonListe les billets d'un groupe
+Paramètres
+Paramètre	Valeur	Type	Description
+group_name	
+(requis)
+string	Nom du groupe
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+title / -title	Tri selon le titre du billet
+position / -position	Tri selon l'ordre des billets
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+crea / -crea	Date de création du billet
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+texts	Inclut les champs text1 à text15 de chaque billet
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "type": "string",
+    "title": "string",
+    "subtitle": "string",
+    "group": "string",
+    "page_title": "string",
+    "page_slug": "string",
+    "url": "string",
+    "post_url": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string"
+  }
+]
+
+get /cms/pages/{slug}/posts.jsonListe les billets d'une page
+Paramètres
+Paramètre	Valeur	Type	Description
+slug	
+(requis)
+string	Nom optimisé de la page
+children	
+flag	Inclus les billets des pages enfants
+group_name	
+string	Restreins à un groupe de billet
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+title / -title	Tri selon le titre du billet
+position / -position	Tri selon l'ordre des billets
+rand	Tri aléatoire. Cet ordre de tri n'est pas compatible avec la pagination
+crea / -crea	Date de création du billet
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+texts	Inclut les champs text1 à text15 de chaque billet
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Page introuvable
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "type": "string",
+    "title": "string",
+    "subtitle": "string",
+    "group": "string",
+    "page_title": "string",
+    "page_slug": "string",
+    "url": "string",
+    "post_url": "string",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string"
+  }
+]
+
+get /cms/menus/{key}/pages.jsonListe l'arborescence d'un menu
+Description
+Liste l'arborescence d'un menu avec la profondeur choisie. L'identifiant api du menu est à récupérer dans la console d'administration ou l'API Developers
+
+Paramètres
+Paramètre	Valeur	Type	Description
+key	
+(requis)
+string	Identifiant api du menu
+depth	
+1
+integer	Profondeur de recherche
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Menu introuvable
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "is_home": "boolean",
+    "type": "string",
+    "title": "string",
+    "slug": "string",
+    "url": "string",
+    "depth": "integer",
+    "link": {
+      "thumb": {
+        "id": "integer",
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "url_miniature": "string",
+        "url_vignette": "string",
+        "url_g_miniature": "string",
+        "url_g_vignette": "string"
+      },
+      "description": "string",
+      "xtra": "string",
+      "attributes": "string"
+    }
+  }
+]
+
+get /cms/pages/{slug}/children.jsonListe les sous pages
+Description
+Liste les pages enfants d'une page. Le paramètre depth permet de choisir la profondeur de l'arborescence qui serra retournée.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+slug	
+(requis)
+string	Nom optimisé de la page
+depth	
+1
+integer	Profondeur de recherche
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Page introuvable
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "is_home": "boolean",
+    "type": "string",
+    "title": "string",
+    "slug": "string",
+    "url": "string",
+    "depth": "integer",
+    "link": {
+      "thumb": {
+        "id": "integer",
+        "title": "string",
+        "description": "string",
+        "url": "string",
+        "url_miniature": "string",
+        "url_vignette": "string",
+        "url_g_miniature": "string",
+        "url_g_vignette": "string"
+      },
+      "description": "string",
+      "xtra": "string",
+      "attributes": "string"
+    }
+  }
+]
+
+get /cms/pages/{slug}/parent.jsonRécupére la page parente d'une page
+Paramètres
+Paramètre	Valeur	Type	Description
+slug	
+(requis)
+string	Nom optimisé de la page
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Page introuvable
+Format de sortie
+Schéma JSONModèle
+{
+  "is_home": "boolean",
+  "type": "string",
+  "title": "string",
+  "slug": "string",
+  "url": "string",
+  "depth": "integer",
+  "link": {
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "description": "string",
+    "xtra": "string",
+    "attributes": "string"
+  }
+}
+
+formsAfficher/MasquerLister les actionsDéplier les actions
+get /forms/{key}/captcha.jsonGénère un captcha
+Description
+Génère un nouveau captcha pour un formulaire Dismoi?. L'identifiant api est à récupérer dans la console d'administration ou l'API Developers.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+key	
+(requis)
+string	Identifiant api du formulaire
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Le formulaire n'existe pas
+Format de sortie
+Schéma JSONModèle
+{
+  "captcha": "string"
+}
+
+get /forms/{key}.jsonRetourne la structure d'un formulaire
+Description
+Liste les champs et la confifuration d'un formulaire Dismoi?. L'identifiant api est à récupérer dans la console d'administration ou l'API Developers.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+key	
+(requis)
+string	Identifiant api du formulaire
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Le formulaire n'existe pas
+Format de sortie
+Schéma JSONModèle
+{
+  "name": "string",
+  "has_captcha": "boolean",
+  "fields": [
+    {
+      "label": "string",
+      "type": "string",
+      "required": "boolean",
+      "help": "string",
+      "name": "string",
+      "alias": "string",
+      "options": [
+        {
+          "value": "string",
+          "label": "string"
+        }
+      ],
+      "value": "string"
+    }
+  ],
+  "is_consent_required": "boolean",
+  "processing_purposes": "string"
+}
+
+post /forms/{key}.jsonEnvoie une réponse au formulaire
+Description
+Envoie une réponse au formulaire Dismoi?. L'identifiant api est à récupérer dans la console d'administration ou l'API Developers.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+key	
+(requis)
+string	Identifiant api du formulaire
+fields	
+(required)
+array	Réponses du formulaire Dismoi?
+captcha	
+string	Réponse au dernier captcha généré. Ce champ est requis selon la configuration du site
+token	
+(requis)
+string	Jeton unique du formulaire
+model	
+string	Modele utilisé pour le formulaire, determine quel template d'email sera utilisé pour l'email de notification
+consent	
+boolean	Donne le consentement au traitement des données
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Le formulaire n'existe pas
+4002	Les données envoyées comportent des erreurs
+Format de sortie
+Schéma JSONModèle
+{
+  "new_captcha": "string",
+  "message": "string"
+}
+
+geoAfficher/MasquerLister les actionsDéplier les actions
+get /geo/countries.jsonListe les pays
+Description
+Liste les pays
+
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "name": "string",
+    "code": "string",
+    "group_id": "integer",
+    "group_name": "string"
+  }
+]
+
+get /geo/countries/{country_id}.jsonDétail d'un pays
+Description
+Détail d'un pays
+
+Paramètres
+Paramètre	Valeur	Type	Description
+country_id	
+(requis)
+integer	Identifiant numérique du pays
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Le pays n'existe pas
+Format de sortie
+Schéma JSONModèle
+{
+  "id": "integer",
+  "name": "string",
+  "code": "string",
+  "group_id": "integer",
+  "group_name": "string"
+}
+
+get /geo/countries/{code}.jsonDétail d'un pays (code iso)
+Description
+Détail d'un pays (code iso)
+
+Paramètres
+Paramètre	Valeur	Type	Description
+code	
+(requis)
+string	Code du pays sur 2 caractères
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Le pays n'existe pas
+Format de sortie
+Schéma JSONModèle
+{
+  "id": "integer",
+  "name": "string",
+  "code": "string",
+  "group_id": "integer",
+  "group_name": "string"
+}
+
+get /geo/countries/{country_id}/regions.jsonListe les régions d'un pays
+Description
+Liste les régions d'un pays
+
+Paramètres
+Paramètre	Valeur	Type	Description
+country_id	
+(requis)
+integer	Identifiant numérique du pays
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Le pays n'existe pas
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "name": "string"
+  }
+]
+
+get /geo/countries/{country_id}/departements.jsonListe les départements d'un pays
+Description
+Liste les départements d'un pays
+
+Paramètres
+Paramètre	Valeur	Type	Description
+country_id	
+(requis)
+integer	Identifiant numérique du pays
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Le pays n'existe pas
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "name": "string",
+    "code": "string",
+    "region_id": "integer"
+  }
+]
+
+mediaAfficher/MasquerLister les actionsDéplier les actions
+get /media/files/{media_id}.jsonRetourne les informations d'un média
+Description
+Retourne les informations d'un média
+
+Paramètres
+Paramètre	Valeur	Type	Description
+media_id	
+(requis)
+integer	Identifiant numérique du média
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Ressource introuvable
+4307	La ressource est protégée, l'utilisateur doit s'identifier
+4308	L'accès à la ressource est refusé
+Format de sortie
+Schéma JSONModèle
+{
+  "id": "integer",
+  "type": "string",
+  "name": "string",
+  "description": "string",
+  "original_name": "string",
+  "modification_date": "string",
+  "modification_date_f": "string",
+  "modification_date_timestamp": "integer",
+  "mime": "string",
+  "weight": "integer",
+  "width": "integer",
+  "height": "integer",
+  "url": "string",
+  "thumb": {
+    "id": "integer",
+    "title": "string",
+    "description": "string",
+    "url": "string",
+    "url_miniature": "string",
+    "url_vignette": "string",
+    "url_g_miniature": "string",
+    "url_g_vignette": "string"
+  }
+}
+
+get /media/folders/{key}.jsonRetourne les médias d'un dossier
+Description
+Retourne les médias contenus dans un dossier. L'identifiant unique du dossier est disponible dans le backoffice.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+key	
+(requis)
+string	Identifiant dossier
+sort	
+array	Détermine l'ordre de tri parmis les critères suivants :
+alpha	Nom du fichier (ordre par défaut)
+-date	Date de modification
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+thumb	Inclut les liens des miniatures pour chaque image
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4401	Ressource introuvable
+4307	La ressource est protégée, l'utilisateur doit s'identifier
+4308	L'accès à la ressource est refusé
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "type": "string",
+    "name": "string",
+    "description": "string",
+    "original_name": "string",
+    "modification_date": "string",
+    "modification_date_f": "string",
+    "modification_date_timestamp": "integer",
+    "mime": "string",
+    "weight": "integer",
+    "width": "integer",
+    "height": "integer",
+    "url": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    }
+  }
+]
+
+newsletterAfficher/MasquerLister les actionsDéplier les actions
+post /newsletter.jsonInscrition à la newsletter
+Description
+Inscrit un email à la newsletter
+
+Paramètres
+Paramètre	Valeur	Type	Description
+email	
+(requis)
+email	Adresse email à inscrire à la newsletter du site
+consent	
+boolean	Donne le consentement au traitement des données
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4001	Le paramètre email n'a pas été renseigné
+4002	Les données envoyées comportent des erreurs
+delete /newsletter.jsonDésinscrition à la newsletter
+Description
+Désinscrit un email à la newsletter
+
+Paramètres
+Paramètre	Valeur	Type	Description
+email	
+(requis)
+email	Adresse email à désinscrire de la newsletter du site
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4001	Le paramètre email n'a pas été renseigné
+ordersAfficher/MasquerLister les actionsDéplier les actions
+get /orders/{order_id}.jsonDétail d'une commande
+Description
+Détail d'une commande
+
+Paramètres
+Paramètre	Valeur	Type	Description
+order_id	
+(requis)
+integer	Identifiant numérique de la commande
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+price_label	Label des prix dans la devise du site
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4307	L'authentification de l'utilisateur est requise
+4401	La commande n'existe pas
+4310	L'accès au détail de la commande est refusé
+Format de sortie
+Schéma JSONModèle
+{
+  "id": "integer",
+  "reference": "string",
+  "client_id": "integer",
+  "date": "string",
+  "date_f": "string",
+  "date_timestamp": "integer",
+  "status": "string",
+  "is_paid": "boolean",
+  "price_total_inc_vat": "float",
+  "price_total_ex_vat": "float",
+  "price_total_inc_vat_label": "string",
+  "price_total_ex_vat_label": "string",
+  "base_price": "string",
+  "currency": "string",
+  "payment_mode": "string",
+  "payment_date": "string",
+  "payment_date_f": "string",
+  "payment_date_timestamp": "integer",
+  "has_voucher": "boolean",
+  "voucher_code": "string",
+  "voucher_amount": "float",
+  "shipping": {
+    "carrier_id": "integer",
+    "name": "string",
+    "description": "string",
+    "price_ex_vat": "float",
+    "price_inc_vat": "float",
+    "price_ex_vat_label": "string",
+    "price_inc_vat_label": "string",
+    "vat_rate": "float",
+    "weight": "integer",
+    "is_free": "boolean",
+    "destination": "string",
+    "picking_number": "string",
+    "require_scheduling": "string",
+    "scheduled_date": "string",
+    "scheduled_hour": "string"
+  },
+  "use_billing_as_shipping": "boolean",
+  "shipping_address": {
+    "civility": "string",
+    "lastname": "string",
+    "firstname": "string",
+    "company": "string",
+    "address": "string",
+    "zipcode": "string",
+    "city": "string",
+    "country": "string",
+    "phone": "string"
+  },
+  "billing_address": {
+    "civility": "string",
+    "lastname": "string",
+    "firstname": "string",
+    "company": "string",
+    "address": "string",
+    "zipcode": "string",
+    "city": "string",
+    "country": "string",
+    "phone": "string"
+  },
+  "items": [
+    {
+      "type": "string",
+      "product_id": "integer",
+      "variant_id": "integer",
+      "reference": "string",
+      "product_name": "string",
+      "variant_name": "string",
+      "quantity": "integer",
+      "price_ex_vat": "float",
+      "price_inc_vat": "float",
+      "price_ex_vat_label": "string",
+      "price_inc_vat_label": "string",
+      "is_discounted": "boolean",
+      "discount": "float",
+      "vat_rate": "float",
+      "price_ecotax": "float",
+      "is_virtual": "boolean",
+      "file_url": "string"
+    }
+  ],
+  "options": [
+    {
+      "option_id": "integer",
+      "name": "string",
+      "quantity": "integer",
+      "value": "string",
+      "price_ex_vat": "float",
+      "price_inc_vat": "float",
+      "price_ex_vat_label": "string",
+      "price_inc_vat_label": "string",
+      "vat_rate": "float"
+    }
+  ],
+  "pdf_url": "string",
+  "fidelity_reward": "integer"
+}
+
+prefsAfficher/MasquerLister les actionsDéplier les actions
+get /prefs/blog.jsonPréferences du blog
+Description
+Retourne les préferences du blog : commentaires blog ouverts, commentaires blog anonymes, captcha commentaire blog
+
+Format de sortie
+Schéma JSONModèle
+{
+  "has_comments_open": "boolean",
+  "has_comments_anonymous": "boolean",
+  "has_captcha": "boolean",
+  "is_active": "boolean"
+}
+
+get /prefs/catalog.jsonPréferences du catalogue
+Description
+Retourne les préferences du catalogue : devise, la configuration du prix (HT ou TTC), exoneration TVA, commentaires catalogue ouverts, commentaires catalogue anonymes, captcha commentaire catalogue, vente en ligne activée
+
+Format de sortie
+Schéma JSONModèle
+{
+  "currency": "string",
+  "base_price": "string",
+  "default_vat_rate": "float",
+  "has_duty_free": "boolean",
+  "has_comments_open": "boolean",
+  "has_comments_anonymous": "boolean",
+  "has_captcha": "boolean",
+  "has_ecommerce": "boolean",
+  "is_active": "boolean"
+}
+
+get /prefs/medias.jsonPréferences de la médiatheque
+Description
+Retourne les tailles d'image de la médiatheque
+
+Format de sortie
+Schéma JSONModèle
+{
+  "g_vignette_width": "integer",
+  "g_vignette_height": "integer",
+  "vignette_width": "integer",
+  "vignette_height": "integer",
+  "g_miniature_width": "integer",
+  "g_miniature_height": "integer",
+  "miniature_width": "integer",
+  "miniature_height": "integer"
+}
+
+get /prefs/site.jsonPréferences du site
+Description
+Retourne les préferences du site
+
+Format de sortie
+Schéma JSONModèle
+{
+  "site_name": "string",
+  "site_excerpt": "string",
+  "site_description": "string",
+  "site_logo_url": "string",
+  "is_contact_page_active": "boolean",
+  "company_name": "string",
+  "company_address": "string",
+  "company_zipcode": "string",
+  "company_city": "string",
+  "company_country": "string",
+  "company_phone": "string",
+  "company_mobile": "string",
+  "company_fax": "string",
+  "theme": "string"
+}
+
+rateAfficher/MasquerLister les actionsDéplier les actions
+get /rate.jsonQuota de requêtes disponibles
+Description
+Retourne le quota de requêtes disponibles pour l'IP du client. Ne consomme pas le quota.
+
+searchAfficher/MasquerLister les actionsDéplier les actions
+get /search/blog/posts.jsonRecherche blog
+Description
+Effectue une recherche dans les billets du blog
+
+Paramètres
+Paramètre	Valeur	Type	Description
+term	
+(requis)
+string	Terme de recherche
+fields	
+array	Liste de champs dans lesquels restreindre la recherche du terme. Parmis les valeurs suivantes : title, header, content
+is_pinned	
+boolean	Billets épinglés
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+date / -date	Tri selon la date de création du billet
+title / -title	Tri par titre de billet
+category / -category	Tri selon l'intitulé de la categorie
+author / -author	Tri selon l'auteur du billet
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4001	Le paramètre term n'a pas été renseigné lors de la requête
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "title": "string",
+    "type": "string",
+    "is_pinned": "boolean",
+    "header": "string",
+    "has_comments_open": "boolean",
+    "comments_count": "integer",
+    "content": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "excerpt": "string",
+    "author": "string",
+    "slug": "string",
+    "url": "string",
+    "permalink": "string",
+    "category_id": "integer",
+    "category_slug": "string",
+    "category_name": "string",
+    "category_url": "string",
+    "publication_date": "string",
+    "publication_date_f": "string",
+    "publication_date_timestamp": "integer"
+  }
+]
+
+get /search/cms/pages.jsonRecherche site web
+Description
+Effectue une recherche dans les pages du site web
+
+Paramètres
+Paramètre	Valeur	Type	Description
+term	
+(requis)
+string	Terme de recherche
+fields	
+array	Liste de champs dans lesquels restreindre la recherche du terme. Parmis les valeurs suivantes : title, subtitle, text1 à text15
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+page / -page	Tri par page
+date / -date	Tri selon la date de dernière mise à jour du billet
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+texts	Inclut les champs text1 à text15 de chaque billet de page
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4001	Le paramètre term n'a pas été renseigné lors de la requête
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "title": "string",
+    "subtitle": "string",
+    "group": "string",
+    "type": "string",
+    "page_title": "string",
+    "page_slug": "string",
+    "url": "string",
+    "is_home": "boolean",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string"
+  }
+]
+
+get /search/catalog/products.jsonRecherche catalogue
+Description
+Effectue une recherche dans les produits du catalogue
+
+Paramètres
+Paramètre	Valeur	Type	Description
+term	
+string	Terme de recherche
+price_min	
+float	Prix minimum des produits
+price_max	
+float	Prix maximum des produits
+category_id	
+array	Identifiants de catégories
+tags	
+array	Liste de tags
+types	
+array	Types de produits
+fields	
+array	Liste de champs dans lesquels restreindre la recherche du terme. Parmis les valeurs suivantes : name, header, description, brand_name, text1 à text15
+availability_start_month	
+integer	Date de début de disponibilité
+availability_end_month	
+integer	Date de fin de disponibilité
+limit	
+integer	Nombre d'éléments par page (valeur par défaut : 20, maximum : 20)
+page	
+integer	Numéro de la page à récupérer. La numérotation démarre à 0 (valeur par défaut)
+sort	
+array	Ordres de tri parmis les critères suivants :
+price / -price	Tri selon le prix du produit
+name / -name	Tri selon l'intitulé du produit
+rate / -rate	Tri selon la note moyenne du produit
+date / -date	Tri selon la date de disponibilité du produit
+spotlight / -spotlight	Tri les produits vedette
+extra_fields	
+array	Inclut des données supplémentaires à la réponse, parmis les suivantes :
+texts	Inclut les champs text1 à text15 de chaque produit
+price_label	Label des prix dans la devise du site
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "type": "string",
+    "name": "string",
+    "slug": "string",
+    "excerpt": "string",
+    "header": "string",
+    "description": "string",
+    "is_virtual": "boolean",
+    "is_spotlight": "boolean",
+    "is_discounted": "boolean",
+    "rate": "float",
+    "price_min_ex_vat": "float",
+    "price_min_inc_vat": "float",
+    "price_max_ex_vat": "float",
+    "price_max_inc_vat": "float",
+    "price_base_ex_vat": "float",
+    "price_base_inc_vat": "float",
+    "price_min_ex_vat_label": "string",
+    "price_min_inc_vat_label": "string",
+    "price_max_ex_vat_label": "string",
+    "price_max_inc_vat_label": "string",
+    "price_base_ex_vat_label": "string",
+    "price_base_inc_vat_label": "string",
+    "variants_count": "integer",
+    "comments_count": "integer",
+    "bought_count": "integer",
+    "views_count": "integer",
+    "soldout_count": "integer",
+    "tags": "string",
+    "url": "string",
+    "category_id": "integer",
+    "category_name": "string",
+    "category_slug": "string",
+    "category_url": "string",
+    "brand_id": "integer",
+    "brand_name": "string",
+    "media_id": "integer",
+    "media_extension": "string",
+    "thumb": {
+      "id": "integer",
+      "title": "string",
+      "description": "string",
+      "url": "string",
+      "url_miniature": "string",
+      "url_vignette": "string",
+      "url_g_miniature": "string",
+      "url_g_vignette": "string"
+    },
+    "availability_date": "string",
+    "availability_date_f": "string",
+    "availability_date_timestamp": "integer",
+    "text1": "string",
+    "text2": "string",
+    "text3": "string",
+    "text4": "string",
+    "text5": "string",
+    "text6": "string",
+    "text7": "string",
+    "text8": "string",
+    "text9": "string",
+    "text10": "string",
+    "text11": "string",
+    "text12": "string",
+    "text13": "string",
+    "text14": "string",
+    "text15": "string"
+  }
+]
+
+sessionAfficher/MasquerLister les actionsDéplier les actions
+get /session.jsonSession courante
+Description
+Vérifie la validité de la session et retourne les informations de l'utilisateur connecté.
+
+Format de sortie
+Schéma JSONModèle
+{
+  "is_logged": "boolean",
+  "user_id": "integer",
+  "firstname": "string",
+  "lastname": "string",
+  "email": "string",
+  "gender": "string"
+}
+
+delete /session.jsonDéconnexion
+Description
+Déconnecte l'utilisateur courant et vide son panier.
+
+put /session.jsonIdentification
+Description
+Identifie un membre par identifiant et mot de passe.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+login	
+string	Identifiant de connexion de l'utilisateur
+password	
+string	Mot de passe de l'utilisateur
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4309	L'authentification de l'utilisateur a échoué
+Format de sortie
+Schéma JSONModèle
+{
+  "is_logged": "boolean",
+  "user_id": "integer",
+  "firstname": "string",
+  "lastname": "string",
+  "email": "string",
+  "gender": "string"
+}
+
+usersAfficher/MasquerLister les actionsDéplier les actions
+get /users/{user_id}.jsonRetourne l'identité du membre
+Description
+Retourne l'identité du membre indiqué. L'identifiant du membre est récupérable grâce aux endpoints dédiés aux sessions.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+user_id	
+(requis)
+integer	Identifiant numérique du membre
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4307	L'authentification de l'utilisateur est requise
+4310	L'accès au profil est refusé
+Format de sortie
+Schéma JSONModèle
+{
+  "id": "integer",
+  "number": "string",
+  "firstname": "string",
+  "lastname": "string",
+  "gender": "string",
+  "email": "string",
+  "group_id": "integer",
+  "website": "string",
+  "nickname": "string",
+  "avatar_url": "string",
+  "avatar_thumb_url": "string",
+  "is_in_mailinglist": "boolean"
+}
+
+get /users/{user_id}/addresses.jsonRetourne les adresses d'un membre
+Description
+Retourne les dernières adresses de livraison et de facturation connues. Le membre doit avoir passé au moins une commande.
+
+Paramètres
+Paramètre	Valeur	Type	Description
+user_id	
+(requis)
+integer	Identifiant numérique du membre
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4307	L'authentification de l'utilisateur est requise
+4310	L'accès aux adresses est refusé
+Format de sortie
+Schéma JSONModèle
+{
+  "billing": {
+    "civility": "string",
+    "lastname": "string",
+    "firstname": "string",
+    "company": "string",
+    "address": "string",
+    "zipcode": "string",
+    "city": "string",
+    "country_id": "integer",
+    "country": "string",
+    "country_code": "string",
+    "phone": "string"
+  },
+  "shipping": {
+    "civility": "string",
+    "lastname": "string",
+    "firstname": "string",
+    "company": "string",
+    "address": "string",
+    "zipcode": "string",
+    "city": "string",
+    "country_id": "integer",
+    "country": "string",
+    "country_code": "string",
+    "phone": "string"
+  }
+}
+
+get /users/{user_id}/orders.jsonListe les commandes d'un membre
+Description
+Liste les commandes d'un membre
+
+Paramètres
+Paramètre	Valeur	Type	Description
+user_id	
+(requis)
+integer	Identifiant numérique du membre
+Codes d'erreur
+Le tableau ci-dessous présente les différents codes d'erreur potentiellement retournés par cette méthode de l'API
+
+Code d'erreur	Raison
+4307	L'authentification de l'utilisateur est requise
+4401	La commande n'existe pas
+4310	L'accès au détail de la commande est refusé
+Format de sortie
+Schéma JSONModèle
+[
+  {
+    "id": "integer",
+    "reference": "string",
+    "date": "string",
+    "date_f": "string",
+    "date_timestamp": "integer",
+    "status": "string",
+    "is_paid": "boolean",
+    "price_total_inc_vat": "float",
+    "price_total_ex_vat": "float",
+    "price_total_inc_vat_label": "string",
+    "price_total_ex_vat_label": "string",
+    "base_price": "string",
+    "currency": "string",
+    "pdf_url": "string"
+  }
+]

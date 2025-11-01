@@ -1,0 +1,33 @@
+{
+  "site": {
+    "site_name": "invivo",
+    "site_excerpt": "votre expert CSE",
+    "site_logo_url": "/media/332.png",
+    "is_contact_page_active": true,
+    "company_name": "In Vivo",
+    "company_address": "47 Route de Montlhéry",
+    "company_zipcode": "91400",
+    "company_city": "ORSAY",
+    "company_country": "FRANCE METROPOLITAINE",
+    "company_phone": "01 75 43 80 80",
+    "company_mobile": "",
+    "company_fax": "",
+    "theme": "theme"
+  },
+  "blog": {
+    "has_comments_open": true,
+    "has_comments_anonymous": true,
+    "has_captcha": true,
+    "is_active": true
+  },
+  "medias": {
+    "g_vignette_width": 960,
+    "g_vignette_height": 960,
+    "vignette_width": 420,
+    "vignette_height": 420,
+    "g_miniature_width": 240,
+    "g_miniature_height": 240,
+    "miniature_width": 120,
+    "miniature_height": 120
+  }
+}

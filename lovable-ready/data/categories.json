@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Générale",
+    "posts_count": 13,
+    "slug": "Generale",
+    "url": "/blog/Generale/"
+  },
+  {
+    "id": 2,
+    "name": "Actualités comptables",
+    "posts_count": 4,
+    "slug": "actualites-comptables",
+    "url": "/blog/actualites-comptables/"
+  },
+  {
+    "id": 12,
+    "name": "Actualités juridiques",
+    "posts_count": 17,
+    "slug": "actualites-juridiques",
+    "url": "/blog/actualites-juridiques/"
+  }
+]

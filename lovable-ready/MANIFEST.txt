@@ -1,0 +1,235 @@
+╔══════════════════════════════════════════════════════════════╗
+║  📦 PACKAGE LOVABLE - IN VIVO EXPERT                        ║
+║  Date: 1er novembre 2025                                    ║
+╚══════════════════════════════════════════════════════════════╝
+
+📊 STATISTIQUES
+===============
+- Total fichiers : 51
+- Articles blog : 20 (Markdown)
+- Images : 20 (JPG haute qualité)
+- Composants React : 2
+- Fichiers config : 4
+- Catégories : 3
+
+📁 STRUCTURE COMPLÈTE
+=====================
+
+lovable-ready/
+│
+├── components/                    [2 fichiers]
+│   ├── BlogPost.tsx              # Composant article de blog React
+│   └── Page.tsx                  # Composant page statique React
+│
+├── content/
+│   ├── posts/                    [20 fichiers .md]
+│   │   └── *.md                  # Articles blog en Markdown avec frontmatter
+│   └── pages/                    [vide]
+│       └── (voir ../site_static_mirror/ pour 89 pages HTML)
+│
+├── public/
+│   ├── _redirects                # ⭐ REDIRECTIONS 301 NETLIFY
+│   └── images/                   [20 fichiers .jpg]
+│       ├── 862.jpg (50KB)
+│       ├── 972.jpg (209KB)
+│       ├── 1042.jpg (220KB)
+│       ├── 1302.jpg (425KB)
+│       ├── 1312.jpg (565KB)
+│       ├── 1322.jpg (5.5MB)
+│       └── ... (14 autres images)
+│
+├── config/                       [4 fichiers]
+│   ├── site-config.json          # Configuration Kiubi
+│   │   └── { site: {...}, blog: {...}, medias: {...} }
+│   ├── redirects-301.json        # 73 redirections format JSON
+│   ├── vercel-redirects.json     # ⭐ REDIRECTIONS VERCEL
+│   └── sitemap-urls.json         # 73 URLs originales
+│
+├── data/                         [1 fichier]
+│   └── categories.json           # 3 catégories blog
+│
+├── content-index.json            # Index navigation (tous les posts)
+└── README.md                     # Documentation d'utilisation
+
+
+🔍 DÉTAILS DES FICHIERS IMPORTANTS
+===================================
+
+1. public/_redirects (Netlify)
+   - Format : chemin-ancien  chemin-nouveau  301
+   - 73 redirections SEO
+   - Prêt à l'emploi pour Netlify
+
+2. config/vercel-redirects.json
+   - Format Vercel pour redirections
+   - À intégrer dans vercel.json
+
+3. config/site-config.json
+   - Nom du site : "In Vivo Expert"
+   - Logo, contacts, adresse
+   - Configuration blog et médias
+
+4. content-index.json
+   - Liste complète des 20 posts
+   - Métadonnées : titre, date, slug, catégorie
+   - Pour navigation/recherche
+
+5. data/categories.json
+   - 3 catégories : [liste des catégories]
+   - ID, nom, slug, URL
+
+
+📝 FORMAT DES POSTS MARKDOWN
+=============================
+
+Exemple de structure :
+```markdown
+---
+title: "Titre de l'article"
+date: "2024-01-15"
+author: "Nom Auteur"
+category: "Actualités"
+slug: "titre-article"
+excerpt: "Résumé..."
+---
+
+# Contenu en Markdown
+
+Paragraphes, listes, liens...
+```
+
+
+🖼️ IMAGES
+==========
+
+Location : public/images/
+Total : 20 fichiers
+Tailles : 50KB à 5.5MB
+Format : JPG
+
+Référencées dans :
+- Articles Markdown (chemin relatif)
+- content-index.json
+
+
+⚛️ COMPOSANTS REACT
+====================
+
+1. BlogPost.tsx
+   Props:
+   - title: string
+   - content: string (HTML)
+   - date: string
+   - author: string
+   - featuredImage?: string
+   - category?: string
+
+2. Page.tsx
+   Props:
+   - title: string
+   - content: string (HTML)
+   - description?: string
+
+
+⚠️ DONNÉES NON INCLUSES
+========================
+
+Ces éléments sont disponibles dans le dossier parent :
+
+1. 89 pages HTML statiques
+   Location : ../site_static_mirror/www.in-vivo-expert.fr/
+   Raison : Erreur API Kiubi (400)
+   Action : Extraire contenu manuellement
+
+2. 40 articles supplémentaires
+   Location : ../exports/posts/all-posts.json
+   Format : JSON brut (60 total, 20 convertis)
+   Action : Convertir les 40 restants si besoin
+
+3. Images supplémentaires
+   Location : ../site_static_mirror/media/
+   Action : Analyser et récupérer si nécessaire
+
+4. Exports JSON bruts
+   Location : ../exports/
+   Contenu : Données API complètes
+
+
+✅ CHECKLIST D'INTÉGRATION LOVABLE
+===================================
+
+Setup initial :
+[ ] Copier lovable-ready/* dans projet Lovable
+[ ] Vérifier structure dossiers
+
+Configuration :
+[ ] Intégrer public/_redirects (Netlify)
+     OU config/vercel-redirects.json (Vercel)
+[ ] Importer site-config.json pour infos site
+[ ] Configurer routes blog avec content-index.json
+
+Composants :
+[ ] Importer BlogPost.tsx et Page.tsx
+[ ] Adapter styles CSS
+[ ] Tester rendu articles
+
+Images :
+[ ] Vérifier chemins images dans posts
+[ ] Optimiser tailles si besoin
+[ ] Configurer CDN si souhaité
+
+Contenu manquant :
+[ ] Récupérer 89 pages HTML de site_static_mirror/
+[ ] Extraire contenu principal
+[ ] Convertir en Markdown ou React
+[ ] Intégrer dans content/pages/
+
+SEO :
+[ ] Tester redirections 301
+[ ] Vérifier meta descriptions
+[ ] Configurer sitemap.xml
+
+Déploiement :
+[ ] Tester localement
+[ ] Déployer sur staging
+[ ] Vérifier tous les liens
+[ ] Configurer domaine in-vivo-expert.fr
+[ ] Mise en production
+
+
+🔗 RESSOURCES COMPLÉMENTAIRES
+==============================
+
+Documentation :
+- ../docs/GUIDE-MIGRATION.md - Guide complet A→Z
+- ../docs/API-KIUBI-COMPLETE.md - Analyse API
+- ../docs/GUIDE-EXPORT-V2.md - Détails export
+- ../README.md - Vue d'ensemble projet
+
+Exports bruts :
+- ../exports/posts/ - 60 articles JSON
+- ../exports/categories/ - Catégories
+- ../exports/config/ - Config Kiubi
+- ../exports/medias/ - 100 URLs médias
+
+Capture statique :
+- ../site_static_mirror/ - Site complet HTML
+  - 89 pages
+  - 224 fichiers total
+  - Navigation, CSS, JS
+
+
+📞 SUPPORT
+==========
+
+En cas de problème :
+1. Vérifier ../docs/GUIDE-MIGRATION.md
+2. Consulter exports/ pour données brutes
+3. Vérifier site_static_mirror/ pour HTML original
+
+
+═══════════════════════════════════════════════════════════════
+Package généré automatiquement par in-vivo-rebuild
+Outils : Node.js, Kiubi API v1, wget, turndown
+Date : 2025-11-01
+═══════════════════════════════════════════════════════════════

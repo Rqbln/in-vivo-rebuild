@@ -1,0 +1,32 @@
+{
+  "name": "in-vivo-rebuild",
+  "version": "1.0.0",
+  "description": "Kit d'extraction et migration Kiubi → Lovable pour in-vivo-expert.fr",
+  "main": "index.js",
+  "scripts": {
+    "export:api": "node scripts/kiubi-api-export.js",
+    "export:api:v2": "node scripts/kiubi-api-export-v2.js",
+    "export:static": "bash scripts/static-mirror.sh",
+    "export:sitemap": "node scripts/extract-sitemap.js",
+    "convert:lovable": "node scripts/convert-to-lovable.js",
+    "export:all": "npm run export:api:v2 && npm run export:static && npm run export:sitemap",
+    "download:medias": "bash scripts/download-medias.sh",
+    "analyze:site": "node scripts/analyze-site.js"
+  },
+  "keywords": [
+    "kiubi",
+    "lovable",
+    "migration",
+    "export"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "xml2js": "^0.6.2",
+    "turndown": "^7.1.2",
+    "fs-extra": "^11.1.1",
+    "glob": "^10.3.10"
+  }
+}

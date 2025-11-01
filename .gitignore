@@ -1,0 +1,29 @@
+# Environment
+.env
+
+# Exports
+exports/*
+site_static_mirror/*
+medias/*
+lovable-ready/exports/*
+
+# Keep directory structure
+!exports/.gitkeep
+!site_static_mirror/.gitkeep
+!medias/.gitkeep
+!lovable-ready/.gitkeep
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
