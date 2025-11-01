@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: que-doit-contenir-votre-bdese
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/1812.jpg"
 ---
 
 **Elle est Obligatoire !**

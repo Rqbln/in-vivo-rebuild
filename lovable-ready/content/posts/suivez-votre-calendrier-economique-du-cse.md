@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: suivez-votre-calendrier-economique-du-cse
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/2192.jpg"
 ---
 
 **JANVIER**

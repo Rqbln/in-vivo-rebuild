@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: comment-bien-gerer-la-tresorerie-du-cse
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/1682.jpg"
 ---
 
 Chaque cas est particulier. Mais il convient d'apprécier les points suivants :  

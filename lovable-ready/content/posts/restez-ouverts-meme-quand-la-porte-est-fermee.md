@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: restez-ouverts-meme-quand-la-porte-est-fermee
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/1302.jpg"
 ---
 
 En fait, dans toute négociation, la clé est de connaître la marge de négociation de la partie adverse.

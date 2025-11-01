@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: le-rapport-annuel-d-activite-et-de-gestion-du-cse-qu-est-ce
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/1672.jpg"
 ---
 
 **Quoi ?**  

@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: bien-choisir-son-expert-cse-ne-s-improvise-pas
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/1652.jpg"
 ---
 
 1.  **L’expert-comptable CSE est-il bien à votre écoute ?**  

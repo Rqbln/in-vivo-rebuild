@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: votre-entreprise-a-t-elle-un-avenir
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/1322.jpg"
 ---
 
 1-      **L’évolution des marchés s’est accélérée et l’activité se fait plus volatile :**

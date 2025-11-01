@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: pourquoi-est-il-important-de-rendre-un-avis-motive-et-comment-faire
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/862.jpg"
 ---
 
 **L'avis est rendu en réunion, ou a posteriori**  

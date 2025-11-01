@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: preparons-ensemble-la-consultation-sur-les-orientations-strategiques-en-1-heure
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/2032.jpg"
 ---
 
 Les élus doivent se préparer,pour bien défendre les intérêts des salariés, et **rendre un avis motivé**.

@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: le-cse-a-une-personnalite-morale-c-est-a-dire
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/1692.jpg"
 ---
 
 **Que peut donc faire le CSE ?**  

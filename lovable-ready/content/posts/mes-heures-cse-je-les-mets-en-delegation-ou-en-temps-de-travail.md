@@ -5,7 +5,7 @@ author: "Philippe Quériaux"
 category: "Non classé"
 slug: mes-heures-cse-je-les-mets-en-delegation-ou-en-temps-de-travail
 excerpt: ""
-featured_image: ""
+featured_image: "https://whivezkkzwgagherygzu.supabase.co/storage/v1/object/public/images/1352.jpg"
 ---
 
   
