@@ -1,0 +1,261 @@
+{
+  "page_config": {
+    "title": "Combien coûte un expert pour votre CSE ?",
+    "meta_description": "Découvrez les missions d'expertise comptable pour votre CSE : qui paie, quand, et pour quoi faire",
+    "url": "/combien-coute-expert-ce"
+  },
+  "pricing_info": {
+    "title": "Ces missions d'expertise comptable sont facturées :",
+    "billing_methods": [
+      "soit au temps passé",
+      "soit sur la base d'un forfait négocié en début de mission"
+    ],
+    "info_needed": {
+      "title": "Pour déterminer ce forfait, certaines informations sont nécessaires :",
+      "items": [
+        "Type de mission envisagé",
+        "Secteur d'activité de l'entreprise",
+        "Nombre d'actionnaires (filiale d'un groupe ?)",
+        "Chiffre d'affaires de l'entreprise",
+        "Effectif",
+        "Nombre d'établissements",
+        "Nombre de conventions collectives applicables",
+        "Résultats nets de l'entreprise"
+      ]
+    },
+    "cta": "Pour évaluer le coût d'une mission, merci de nous transmettre ces éléments à l'aide du formulaire de contact. Nous vous ferons parvenir une proposition dans les meilleurs délais."
+  },
+  "missions": {
+    "employeur": {
+      "title": "À la charge de l'employeur",
+      "subtitle": "Missions légales (art. L. 2312-17 et L. 2315-80 CT)",
+      "intro": "Ces missions sont prévues par la loi. L'employeur ne peut pas s'opposer à la désignation de l'expert par le CSE.",
+      "designation_process": {
+        "title": "Modalités de désignation :",
+        "steps": [
+          "Le CSE vote la désignation de l'expert en réunion plénière",
+          "L'expert est choisi librement par le CSE",
+          "L'employeur ne peut pas s'opposer à cette désignation",
+          "L'employeur règle directement les honoraires de l'expert"
+        ]
+      },
+      "list": [
+        {
+          "id": "examen-comptes-annuels",
+          "title": "Examen de la situation économique et financière",
+          "url": "/examen-des-comptes-annuels",
+          "category": "Missions annuelles",
+          "financing": "100% employeur",
+          "legal_ref": "Art. L. 2315-88 CT",
+          "frequency": "Annuelle",
+          "delay": "2 mois avec expert, 1 mois sans expert",
+          "content": {
+            "intro": "Chaque année, l'employeur doit consulter le CSE sur la situation économique et financière de l'entreprise.",
+            "role": [
+              "Analyse les comptes annuels (bilan, compte de résultat)",
+              "Évalue la santé financière de l'entreprise",
+              "Compare avec le secteur d'activité",
+              "Explique les choix de gestion de la direction",
+              "Prépare les élus à la réunion de consultation",
+              "Rédige un rapport d'expertise"
+            ],
+            "benefits": [
+              "Comprendre les comptes de votre entreprise",
+              "Poser les bonnes questions à la direction",
+              "Rendre un avis éclairé",
+              "Mieux défendre les intérêts des salariés"
+            ],
+            "conclusion": "Cette mission est un droit du CSE. Elle permet aux élus de comprendre la réalité économique de l'entreprise pour mieux défendre les intérêts des salariés."
+          }
+        },
+        {
+          "id": "examen-politique-sociale",
+          "title": "Examen de la politique sociale",
+          "url": "/examen-des-comptes-previsionnels",
+          "category": "Missions annuelles",
+          "financing": "100% employeur",
+          "legal_ref": "Art. L. 2315-91 CT",
+          "frequency": "Annuelle",
+          "delay": "2 mois avec expert, 1 mois sans expert",
+          "content": {
+            "intro": "Chaque année, l'employeur doit consulter le CSE sur la politique sociale de l'entreprise, l'emploi et les conditions de travail.",
+            "role": [
+              "Analyse l'évolution des effectifs",
+              "Étudie la politique de rémunération",
+              "Examine la formation professionnelle",
+              "Évalue les conditions de travail",
+              "Compare avec les pratiques du secteur",
+              "Prépare les élus à la réunion de consultation"
+            ],
+            "benefits": [
+              "Mieux comprendre la politique RH",
+              "Identifier les inégalités (hommes/femmes, catégories...)",
+              "Proposer des améliorations",
+              "Préparer les négociations annuelles obligatoires (NAO)"
+            ],
+            "conclusion": "Cette mission éclaire les élus sur les choix RH de la direction et permet de mieux préparer les négociations."
+          }
+        },
+        {
+          "id": "orientations-strategiques",
+          "title": "Examen des orientations stratégiques",
+          "url": "/examen-des-orientations-strategiques",
+          "category": "Missions annuelles",
+          "financing": "80% employeur / 20% CSE",
+          "legal_ref": "Art. L. 2312-24 CT",
+          "frequency": "Annuelle",
+          "delay": "2 mois avec expert, 1 mois sans expert",
+          "content": {
+            "intro": "Chaque année, l'employeur doit consulter le CSE sur les orientations stratégiques de l'entreprise.",
+            "role": [
+              "Analyse la stratégie de l'entreprise",
+              "Évalue les perspectives d'avenir",
+              "Mesure l'impact sur l'emploi",
+              "Compare avec la concurrence",
+              "Identifie les risques et opportunités",
+              "Propose des axes de développement"
+            ],
+            "benefits": [
+              "Comprendre la vision de la direction",
+              "Anticiper les évolutions",
+              "Proposer des alternatives",
+              "Mieux défendre l'emploi"
+            ],
+            "conclusion": "Cette mission permet aux élus de se projeter dans l'avenir de l'entreprise et de proposer des orientations alternatives."
+          }
+        },
+        {
+          "id": "plan-licenciement",
+          "title": "Assistance / Plan de sauvegarde de l'emploi (PSE)",
+          "url": "/assistance-plan-de-licenciement",
+          "category": "Missions exceptionnelles",
+          "financing": "100% employeur",
+          "legal_ref": "Art. L. 1233-34 CT",
+          "frequency": "Ponctuelle",
+          "delay": "Variable selon l'urgence",
+          "content": {
+            "intro": "En cas de projet de licenciement collectif, le CSE peut mandater un expert-comptable.",
+            "role": [
+              "Analyse les motifs économiques du licenciement",
+              "Étudie les alternatives possibles",
+              "Examine le plan de sauvegarde de l'emploi (PSE)",
+              "Vérifie les mesures d'accompagnement",
+              "Évalue le coût du plan",
+              "Négocie avec la direction"
+            ],
+            "benefits": [
+              "S'assurer que le licenciement est justifié",
+              "Vérifier que le PSE est à la hauteur",
+              "Obtenir de meilleures mesures d'accompagnement",
+              "Protéger les salariés"
+            ],
+            "conclusion": "Cette mission est cruciale pour limiter les dégâts d'un licenciement collectif et obtenir le meilleur PSE possible."
+          }
+        },
+        {
+          "id": "droit-alerte",
+          "title": "Assistance / Droit d'alerte",
+          "url": "/assistance-procedure-d-alerte",
+          "category": "Missions exceptionnelles",
+          "financing": "100% employeur",
+          "legal_ref": "Art. L. 2312-63 CT",
+          "frequency": "Ponctuelle",
+          "delay": "Urgent",
+          "content": {
+            "intro": "Quand le CSE constate des faits préoccupants pour la situation économique de l'entreprise, il peut déclencher une procédure d'alerte.",
+            "role": [
+              "Évalue la réalité de la situation",
+              "Mesure les risques pour l'entreprise et l'emploi",
+              "Prépare les questions au dirigeant",
+              "Rédige un rapport circonstancié",
+              "Propose des solutions",
+              "Alerte en temps utile"
+            ],
+            "benefits": [
+              "Éviter une dégradation de la situation",
+              "Anticiper les difficultés",
+              "Protéger l'emploi",
+              "Responsabiliser la direction"
+            ],
+            "conclusion": "Cette mission permet d'alerter en temps utile pour éviter le pire."
+          }
+        }
+      ]
+    },
+    "cse": {
+      "title": "À la charge du CSE",
+      "subtitle": "Budget de fonctionnement",
+      "intro": "Ces missions sont financées sur le budget de fonctionnement du CSE. Elles sont facultatives mais fortement recommandées pour une bonne gestion.",
+      "list": [
+        {
+          "id": "rapport-annuel",
+          "title": "Rapport annuel d'activité & de gestion",
+          "url": "/assistance-rapport-annuel-d-activite-de-gestion",
+          "category": "Comptes du CSE",
+          "financing": "Budget fonctionnement CSE",
+          "legal_requirement": "Obligatoire si budget > 153 000€",
+          "frequency": "Annuelle",
+          "content": {
+            "intro": "Le CSE doit présenter chaque année un rapport d'activité et de gestion.",
+            "role": [
+              "Aide à tenir une comptabilité conforme",
+              "Prépare le rapport annuel",
+              "Présente les comptes aux salariés",
+              "Assure le respect des obligations légales",
+              "Conseille sur la gestion du budget",
+              "Forme les élus à la comptabilité"
+            ],
+            "benefits": [
+              "Sécurité juridique",
+              "Transparence vis-à-vis des salariés",
+              "Meilleure gestion du budget",
+              "Protection des élus"
+            ],
+            "obligation": "Obligatoire pour les CSE avec budget supérieur à 153 000 € ou qui gèrent des activités sociales et culturelles.",
+            "conclusion": "Cette mission sécurise la gestion du CSE et protège les élus en cas de contrôle."
+          }
+        },
+        {
+          "id": "compte-rendu-mandat",
+          "title": "Compte rendu de fin de mandat",
+          "url": "/assistance-compte-rendu-de-fin-de-mandat",
+          "category": "Comptes du CSE",
+          "financing": "Budget fonctionnement CSE",
+          "legal_requirement": "Fortement recommandé",
+          "frequency": "Tous les 4 ans",
+          "content": {
+            "intro": "À la fin de leur mandat, les élus doivent rendre compte de leur gestion.",
+            "role": [
+              "Établit un bilan de la gestion",
+              "Prépare le compte rendu",
+              "Vérifie la conformité des comptes",
+              "Facilite la passation avec la nouvelle équipe",
+              "Identifie les points d'attention",
+              "Protège les élus sortants"
+            ],
+            "benefits": [
+              "Transparence de la gestion",
+              "Protection des élus sortants",
+              "Transmission facilitée",
+              "Pas de mauvaise surprise pour les nouveaux élus"
+            ],
+            "conclusion": "Cette mission protège les élus sortants en cas de contestation ultérieure et facilite la passation."
+          }
+        }
+      ]
+    }
+  },
+  "contact_cta": {
+    "title": "Besoin de conseils sur le financement ?",
+    "description": "Contactez-nous pour déterminer quelle mission correspond à vos besoins et qui doit la financer.",
+    "phone": "01 75 43 80 80",
+    "email": "pqueriaux@in-vivo-expert.fr",
+    "button_text": "Nous contacter"
+  },
+  "legal_notes": [
+    "Les missions légales sont un droit du CSE : l'employeur ne peut pas s'y opposer",
+    "La désignation de l'expert se fait par simple vote en réunion plénière du CSE",
+    "Les honoraires sont négociés directement entre l'expert et l'employeur",
+    "Le CSE peut utiliser son budget de fonctionnement pour des missions complémentaires"
+  ]
+}
